@@ -3,17 +3,45 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Web Music Player</title>
+
+	<link type="text/css" rel="stylesheet" href="css/structure.css">
+	<link type="text/css" rel="stylesheet" href="css/components.css">
 </head>
 <body>
 
-	<!-- ESTRUTURA -->
-	<header class="header">Header</header>
-	<aside class="sidebar">SideBar</aside>
 	<div class="container">
-		<section class="music-list"></section>
-		<section class="player-wrap"></section>
+		<header class="header"></header>
+
+		<aside class="side-bar">
+			<form name="form_musics" method="POST">
+				<input type="file" id="file-element" accept="audio/mp3" multiple style="display:none;" />
+				<button type="button" id="file-upload">Selecionar Músicas</button>
+			</form>
+		</aside>
+
+		<div class="content-wrap">
+
+			<section class="play-list">
+				<h3>PlayList:</h3>
+			</section>
+
+			<section class="player-wrap">
+				<audio id="player" preload="auto" controls>
+					Seu browser não suporta reprodução de áudio.
+				</audio>
+				<!--controles do player -->
+				<button type="button" class="player-btn" id="btn-prev"> < </button>
+				<button type="button" class="player-btn" id="btn-play-pause" data-playState="pause"> |> </button>
+				<button type="button" class="player-btn" id="btn-next"> > </button>
+			</section>
+
+		</div>
+
+		<footer class="footer">Footer</footer>
+
 	</div>
-	<footer>Footer</footer>
-	<!-- FIM ESTRUTURA -->
+
+	<script type="text/javascript" src="js/player.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
 </body>
 </html>
