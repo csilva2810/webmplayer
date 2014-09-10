@@ -1,5 +1,5 @@
 var fileUpload  = document.querySelector("#file-upload"),
-		fileElement = document.querySelector("#file-element");
+	fileElement = document.querySelector("#file-element");
 		
 fileUpload.addEventListener("click", function(e) {
 	if (fileElement) {
@@ -11,12 +11,12 @@ fileUpload.addEventListener("click", function(e) {
 	e.preventDefault();
 }, false);
 
-fileElement.addEventListener('change', function() {
+fileElement.addEventListener("change", function() {
 	//guardando cada arquivo de audio em uma playlist
 	for(var i = 0, len = this.files.length; i < len; i++) {
 		Player.playList.push(this.files[i]);
 	}
 	//carregando primeira musica por padrão
-	Player.setMusic(0);
+	Player.playMusic(0);
 
 }, false);
