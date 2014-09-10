@@ -6,6 +6,7 @@
 
 	<link type="text/css" rel="stylesheet" href="css/structure.css">
 	<link type="text/css" rel="stylesheet" href="css/components.css">
+	<link type="text/css" rel="stylesheet" href="css/icons.css">
 </head>
 <body>
 
@@ -15,7 +16,7 @@
 		<aside class="side-bar">
 			<form name="form_musics" method="POST">
 				<input type="file" id="file-element" accept="audio/mp3" multiple style="display:none;" />
-				<button type="button" id="file-upload">Selecionar Músicas</button>
+				<button type="button" id="btn-upload">Selecionar Músicas</button>
 			</form>
 		</aside>
 
@@ -26,15 +27,26 @@
 			</section>
 
 			<section class="player-wrap">
-				<audio id="player" preload="auto" controls>
+
+				<audio id="player" preload="auto">
 					Seu browser não suporta reprodução de áudio.
 				</audio>
+
 				<!--controles do player -->
-				<button type="button" class="player-btn" id="btn-repeat" data-repeat="false"> Repeat Off </button>
-				<button type="button" class="player-btn" id="btn-prev"> < </button>
-				<button type="button" class="player-btn" id="btn-play-pause" data-playState="pause"> |> </button>
-				<button type="button" class="player-btn" id="btn-next"> > </button>
-				<button type="button" class="player-btn" id="btn-random" data-random="false"> Random Off </button>
+				<button type="button" class="player-btn icon icon-repeat" id="repeat" data-repeat="false"></button>
+				<button type="button" class="player-btn icon icon-chevron-left" id="prev"></button>
+				<button type="button" class="player-btn icon icon-play large" id="play-pause" data-playState="pause"></button>
+				<button type="button" class="player-btn icon icon-chevron-right" id="next"></button>
+				<button type="button" class="player-btn icon icon-random" id="random" data-random="false"></button>
+				<!-- /controles -->
+
+				<!-- timeline -->
+				<label id="time-count">0:00</label>
+				<input type="range" min="0" max="100" id="timeline" value="0">
+				<label id="time">0:00</label>
+				<!-- /timeline -->
+
+				<input type="range" min="0" max="10" id="volume" value="10">
 			</section>
 
 		</div>

@@ -1,7 +1,7 @@
-var fileUpload  = document.querySelector("#file-upload"),
+var btnUpload  = document.querySelector("#btn-upload"),
 	fileElement = document.querySelector("#file-element");
 		
-fileUpload.addEventListener("click", function(e) {
+btnUpload.addEventListener("click", function(e) {
 	if (fileElement) {
 		fileElement.click(); //chamando janela de upload
 	}

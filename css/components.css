@@ -1,0 +1,47 @@
+.player-btn {
+	text-align: center;
+	width: 32px;
+	height: 32px;
+	outline: none;
+	cursor: pointer;
+	color: #777;
+	background: transparent;
+	border: 1px solid #ddd;
+	border-radius: 50%;
+	padding: 4px;
+	margin: 4px;
+
+	transition: 0.2s;
+}
+
+.player-btn:hover {
+	background: #e7746f;
+	border-color: #e7746f;
+	color: white;
+	-webkit-box-shadow: 0 0 1px rgba(25,25,25,0.25);
+		 -moz-box-shadow: 0 0 1px rgba(25,25,25,0.25);
+			-ms-box-shadow: 0 0 1px rgba(25,25,25,0.25);
+					box-shadow: 0 0 1px rgba(25,25,25,0.25);
+}
+
+.player-btn:active {
+	-webkit-box-shadow: inset 1px 2px 1px rgba(25,25,25,0.25);
+		 -moz-box-shadow: inset 1px 2px 1px rgba(25,25,25,0.25);
+			-ms-box-shadow: inset 1px 2px 1px rgba(25,25,25,0.25);
+					box-shadow: inset 1px 2px 1px rgba(25,25,25,0.25);
+}
+
+.player-btn.large {
+	font-size: 1.25em;
+	width: 50px;
+	height: 50px;
+}
+
+.player-btn.on {
+	border-color: #e7746f;
+	color: #e7746f;
+}
+
+.player-btn.on:hover {
+	color: white;
+}
