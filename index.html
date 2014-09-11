@@ -2,6 +2,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Web Music Player</title>
 
 	<link type="text/css" rel="stylesheet" href="css/structure.css">
@@ -19,14 +20,13 @@
 			<div class="upload-wrap">
 				<form name="form_upload">
 					<input type="file" id="file-element" accept="audio/mp3" multiple style="display:none;" />
-					<button type="button" id="btn-upload" class="btn btn-upload">Selecionar Músicas</button>
+					<button type="button" id="btn-upload" class="btn btn-upload" title="Adicionar Músicas"><span class="icon icon-music"></span></button>
 				</form>
 			</div>
 
 		</header>
 
 		<section class="play-list-wrap">
-			<h3>PlayList:</h3>
 			<ul class="play-list" id="play-list"></ul>
 		</section>
 
@@ -44,16 +44,23 @@
 			</div>	
 			<!-- /controles -->
 
+			<!-- informações da música -->
+			<div class="music-info">
+				<span id="loading-music" class="loading">Carregando...</span>
+				<label id="music-name"> -- </label>
+			</div>
+			<!-- /informações -->
+
 			<!-- timeline -->
 			<div class="timeline-wrap">
-				<label id="time-count">0:00</label>
-				<input type="range" min="0" max="100" id="timeline" value="0">
-				<label id="time">0:00</label>
+				<label id="time-count">00:00</label>
+				<input type="range" class="range opaque" min="0" max="100" id="timeline" value="0">
+				<label id="time">00:00</label>
 
 				<span class="volume-wrap">
 					<button type="button" class="btn-volume btn player-btn small icon icon-volume-down"></button>
 					<span class="volume-box">
-						<input type="range" min="0" max="10" id="volume" value="10">
+						<input type="range" class="range" min="0" max="10" id="volume" value="10">
 					</span>
 				</span>
 			</div>

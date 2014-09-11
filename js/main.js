@@ -12,6 +12,7 @@ btnUpload.addEventListener("click", function(e) {
 }, false);
 
 fileElement.addEventListener("change", function() {
+	Player.playList = [];
 	//guardando cada arquivo de audio em uma playlist
 	for(var i = 0, len = this.files.length; i < len; i++) {
 		Player.playList.push(this.files[i]);

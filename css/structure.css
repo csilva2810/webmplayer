@@ -1,8 +1,8 @@
 *, *:before, *:after {
 	-webkit-box-sizing: border-box;
 	   -moz-box-sizing: border-box;
-		-ms-box-sizing: border-box;
-			box-sizing: border-box;
+			-ms-box-sizing: border-box;
+				 	box-sizing: border-box;
 }
 
 html, body {
@@ -11,7 +11,11 @@ html, body {
 	height: 100%;
 	font-family: "Segoe UI", "Calibri", sans-serif;
 	font-size: 100%;
-	background: #fcfcfd;
+	color: #777;
+	background: #eee;
+	background: url(../img/background.jpg);
+	background-position: center;
+	background-attachment: fixed;
 }
 
 header, section, footer, aside, nav, main, article, figure { 
@@ -20,23 +24,27 @@ header, section, footer, aside, nav, main, article, figure {
 
 .container {
 	position: relative;
-	width: 70%;
+	width: 80%;
 	top: 5%;
 	margin: 0 auto;
 	border-radius: 8px;
-	
 	background: white;
 	
-	-webkit-box-shadow: 0 0 5px 0 rgba(0,0,0, 0.2);
-	   -moz-box-shadow: 0 0 5px 0 rgba(0,0,0, 0.2);
-		-ms-box-shadow: 0 0 5px 0 rgba(0,0,0, 0.2);
-		    box-shadow: 0 0 5px 0 rgba(0,0,0, 0.2);
+	-webkit-box-shadow: 1px 1px 5px 2px rgba(0,0,0, 0.2);
+	   -moz-box-shadow: 1px 1px 5px 2px rgba(0,0,0, 0.2);
+			-ms-box-shadow: 1px 1px 5px 2px rgba(0,0,0, 0.2);
+		      box-shadow: 1px 1px 5px 2px rgba(0,0,0, 0.2);
+
+  -webkit-transition: 0.2s;
+	   -moz-transition: 0.2s;
+	    -ms-transition: 0.2s;
+				  transition: 0.2s;
 }
 
 .header {
-	background: #33cc9c;
+	background: white;
 	position: relative;
-	height: 54px;
+	min-height: 54px;
 	border-bottom: 1px solid #eee;
 	line-height: 42px;
 
@@ -47,7 +55,8 @@ header, section, footer, aside, nav, main, article, figure {
 	position: absolute;
 	margin: 4px 8px;
 	font-size: 1.5em;
-	color: white;
+	color: #777;
+	font-weight: bold;
 }
 
 .upload-wrap {
@@ -60,9 +69,9 @@ header, section, footer, aside, nav, main, article, figure {
 .play-list-wrap {
 	position: relative;
 	width: 99%;
-	min-height: 400px;
-	max-height: 450px;
-	overflow-y: scroll; 
+	min-height: 200px;
+	max-height: 210px;
+	overflow-y: auto;
 	margin: 0 8px;
 }
 
@@ -74,6 +83,8 @@ header, section, footer, aside, nav, main, article, figure {
 	border-top: 1px solid #eee;
 	text-align: center;
 	padding: 20px;
+	background: #fdfdfd;
+	border-radius: 0 0 8px 8px;
 }
 
 .controls-wrap {
@@ -81,6 +92,28 @@ header, section, footer, aside, nav, main, article, figure {
 }
 
 .timeline-wrap {
-	width: 100%;
+	width: 95%;
 	margin: 0 8px;
+}
+
+@media screen and (max-width: 700px) {
+
+	.container {
+		width: 95%;
+		top: 2%;
+	}
+
+	.play-list-wrap {
+		height: 75px;
+		max-height: 90px;
+	}
+
+	.timeline-wrap {
+		margin: 0;
+	}
+
+	input#timeline {
+		width: 50% !important;
+	}
+
 }
