@@ -1,8 +1,8 @@
 *, *:before, *:after {
 	-webkit-box-sizing: border-box;
-		 -moz-box-sizing: border-box;
-			-ms-box-sizing: border-box;
-					box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+		-ms-box-sizing: border-box;
+			box-sizing: border-box;
 }
 
 html, body {
@@ -11,6 +11,7 @@ html, body {
 	height: 100%;
 	font-family: "Segoe UI", "Calibri", sans-serif;
 	font-size: 100%;
+	background: #fcfcfd;
 }
 
 header, section, footer, aside, nav, main, article, figure { 
@@ -19,46 +20,67 @@ header, section, footer, aside, nav, main, article, figure {
 
 .container {
 	position: relative;
-	min-height: 100%;
+	width: 70%;
+	top: 5%;
+	margin: 0 auto;
+	border-radius: 8px;
+	
+	background: white;
+	
+	-webkit-box-shadow: 0 0 5px 0 rgba(0,0,0, 0.2);
+	   -moz-box-shadow: 0 0 5px 0 rgba(0,0,0, 0.2);
+		-ms-box-shadow: 0 0 5px 0 rgba(0,0,0, 0.2);
+		    box-shadow: 0 0 5px 0 rgba(0,0,0, 0.2);
 }
 
 .header {
+	background: #33cc9c;
 	position: relative;
-	height: 74px;
-	border: 1px solid #ddd;
+	height: 54px;
+	border-bottom: 1px solid #eee;
+	line-height: 42px;
+
+	border-radius: 8px 8px 0 0;
 }
 
-.side-bar {
-	position: relative;
-	min-height: 300px;
-	height: 100%;
-	width: 20%;
-	border: 1px solid #ddd;
-	float: left;
-}
-
-.content-wrap {
-	position: relative;
-	width: 80%;
-	min-height: 300px;
-	height: 100%;
-	float: right;
-	border: 1px solid #ddd;
-}
-
-	.music-list {
-		border: 1px solid #ddd;
-		height: 50%;
-	}
-
-	.player-wrap {
-		border: 1px solid #ddd;
-		height: 50%;
-	}
-
-.footer {
+.logo {
 	position: absolute;
+	margin: 4px 8px;
+	font-size: 1.5em;
+	color: white;
+}
+
+.upload-wrap {
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 4px 8px;
+}
+
+.play-list-wrap {
+	position: relative;
+	width: 99%;
+	min-height: 400px;
+	max-height: 450px;
+	overflow-y: scroll; 
+	margin: 0 8px;
+}
+
+.player-wrap {
+	position: relative;
 	bottom: 0;
 	width: 100%;
-	border: 1px solid #ddd;	
+	min-height: 150px;
+	border-top: 1px solid #eee;
+	text-align: center;
+	padding: 20px;
+}
+
+.controls-wrap {
+	margin: 0 auto;
+}
+
+.timeline-wrap {
+	width: 100%;
+	margin: 0 8px;
 }

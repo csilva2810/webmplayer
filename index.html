@@ -10,48 +10,56 @@
 </head>
 <body>
 
-	<div class="container">
-		<header class="header"></header>
+	<div class="container">		
 
-		<aside class="side-bar">
-			<form name="form_musics" method="POST">
-				<input type="file" id="file-element" accept="audio/mp3" multiple style="display:none;" />
-				<button type="button" id="btn-upload">Selecionar Músicas</button>
-			</form>
-		</aside>
+		<header class="header">
 
-		<div class="content-wrap">
+			<div class="logo">WebMPlayer</div>
 
-			<section class="play-list">
-				<h3>PlayList:</h3>
-			</section>
+			<div class="upload-wrap">
+				<form name="form_upload">
+					<input type="file" id="file-element" accept="audio/mp3" multiple style="display:none;" />
+					<button type="button" id="btn-upload" class="btn btn-upload">Selecionar Músicas</button>
+				</form>
+			</div>
 
-			<section class="player-wrap">
+		</header>
 
-				<audio id="player" preload="auto">
-					Seu browser não suporta reprodução de áudio.
-				</audio>
+		<section class="play-list-wrap">
+			<h3>PlayList:</h3>
+			<ul class="play-list" id="play-list"></ul>
+		</section>
 
-				<!--controles do player -->
-				<button type="button" class="player-btn icon icon-repeat" id="repeat" data-repeat="false"></button>
-				<button type="button" class="player-btn icon icon-chevron-left" id="prev"></button>
-				<button type="button" class="player-btn icon icon-play large" id="play-pause" data-playState="pause"></button>
-				<button type="button" class="player-btn icon icon-chevron-right" id="next"></button>
-				<button type="button" class="player-btn icon icon-random" id="random" data-random="false"></button>
-				<!-- /controles -->
+		<section class="player-wrap">
 
-				<!-- timeline -->
+			<audio id="player" preload="auto">Seu browser não suporta reprodução de áudio.</audio>
+
+			<!--controles do player -->
+			<div class="controls-wrap">
+				<button type="button" class="btn player-btn icon icon-repeat"        id="repeat" data-repeat="false"></button>
+				<button type="button" class="btn player-btn icon icon-chevron-left"  id="prev"></button>
+				<button type="button" class="btn player-btn icon icon-play large"    id="play-pause" data-playState="pause"></button>
+				<button type="button" class="btn player-btn icon icon-chevron-right" id="next"></button>
+				<button type="button" class="btn player-btn icon icon-random"        id="random" data-random="false"></button>
+			</div>	
+			<!-- /controles -->
+
+			<!-- timeline -->
+			<div class="timeline-wrap">
 				<label id="time-count">0:00</label>
 				<input type="range" min="0" max="100" id="timeline" value="0">
 				<label id="time">0:00</label>
-				<!-- /timeline -->
 
-				<input type="range" min="0" max="10" id="volume" value="10">
-			</section>
+				<span class="volume-wrap">
+					<button type="button" class="btn-volume btn player-btn small icon icon-volume-down"></button>
+					<span class="volume-box">
+						<input type="range" min="0" max="10" id="volume" value="10">
+					</span>
+				</span>
+			</div>
+			<!-- /timeline -->
 
-		</div>
-
-		<footer class="footer">Footer</footer>
+		</section>
 
 	</div>
 

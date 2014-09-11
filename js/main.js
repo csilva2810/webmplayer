@@ -18,5 +18,7 @@ fileElement.addEventListener("change", function() {
 	}
 	//carregando primeira musica por padrão
 	Player.playMusic(0);
+	//criando a play list das musicas selecionadas
+	Player.createPlayList();
 
 }, false);

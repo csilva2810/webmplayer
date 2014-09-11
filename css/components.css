@@ -1,47 +1,145 @@
+.btn {
+	cursor: pointer;
+	outline: none;
+
+	background: transparent;
+	background: -webkit-linear-gradient(bottom, #fff, #fbfbfb);
+	background:    -moz-linear-gradient(bottom, #fff, #fbfbfb);
+	background:     -ms-linear-gradient(bottom, #fff, #fbfbfb);
+	background:         linear-gradient(bottom, #fff, #fbfbfb);
+
+	-webkit-transition: 0.25s;
+	   -moz-transition: 0.25s;
+	    -ms-transition: 0.25s;
+	        transition: 0.25s;
+}
+
+.btn:active {
+	-webkit-box-shadow: inset 1px 2px 1px rgba(25,25,25,0.25);
+	   -moz-box-shadow: inset 1px 2px 1px rgba(25,25,25,0.25);
+		-ms-box-shadow: inset 1px 2px 1px rgba(25,25,25,0.25);
+			box-shadow: inset 1px 2px 1px rgba(25,25,25,0.25);
+
+	-webkit-transition: 0.1s;
+	   -moz-transition: 0.1s;
+	    -ms-transition: 0.1s;
+	        transition: 0.1s;
+}
+
+.btn:focus {
+	border: 1px dotted #33cc9c;
+}
+
+.btn-upload {
+	text-align: center;
+	
+	padding: 10px 20px;
+	border: 1px solid white;
+	border-radius: 8px;
+	color: white;
+	font-size: 1em;
+
+	background: #33cc9c;
+}
+
+.btn-upload:hover {
+	background: white;
+	color: #33cc9c;
+}
+
 .player-btn {
 	text-align: center;
-	width: 32px;
-	height: 32px;
+	width: 50px;
+	height: 50px;
 	outline: none;
 	cursor: pointer;
 	color: #777;
-	background: transparent;
+	font-size: 1em;
 	border: 1px solid #ddd;
 	border-radius: 50%;
 	padding: 4px;
 	margin: 4px;
-
-	transition: 0.2s;
 }
 
 .player-btn:hover {
-	background: #e7746f;
-	border-color: #e7746f;
+	background: #33cc9c;
+	border-color: #33cc9c;
 	color: white;
-	-webkit-box-shadow: 0 0 1px rgba(25,25,25,0.25);
-		 -moz-box-shadow: 0 0 1px rgba(25,25,25,0.25);
-			-ms-box-shadow: 0 0 1px rgba(25,25,25,0.25);
-					box-shadow: 0 0 1px rgba(25,25,25,0.25);
-}
-
-.player-btn:active {
-	-webkit-box-shadow: inset 1px 2px 1px rgba(25,25,25,0.25);
-		 -moz-box-shadow: inset 1px 2px 1px rgba(25,25,25,0.25);
-			-ms-box-shadow: inset 1px 2px 1px rgba(25,25,25,0.25);
-					box-shadow: inset 1px 2px 1px rgba(25,25,25,0.25);
 }
 
 .player-btn.large {
 	font-size: 1.25em;
-	width: 50px;
-	height: 50px;
+	width: 75px;
+	height: 75px;
+}
+
+.player-btn.small {
+	font-size: 1em;
+	width: 35px;
+	height: 35px;
 }
 
 .player-btn.on {
-	border-color: #e7746f;
-	color: #e7746f;
+	border-color: #33cc9c;
+	color: #33cc9c;
 }
 
 .player-btn.on:hover {
 	color: white;
+}
+
+input#timeline {
+	width: 80%;
+	vertical-align: middle;
+}
+
+.volume-wrap {
+	position: relative;
+}
+
+.volume-wrap:hover .volume-box,
+.btn-volume:hover ~ .volume-box,
+.btn-volume:focus ~ .volume-box {
+	visibility: visible;
+	opacity: 0.9;
+}
+
+.volume-box {
+	position: absolute;
+	top: -8px;
+	left: 50px;
+
+	background: white;
+	border: 1px solid #ddd;
+	border-radius: 8px;
+	padding: 4px 8px;
+
+	visibility: hidden;
+	opacity: 0;
+
+	/*visibility: visible;*/
+	/*opacity: 0.9;*/
+
+	-webkit-box-shadow: 2px 2px 2px rgba(100,100,100, 0.25);
+	   -moz-box-shadow: 2px 2px 2px rgba(100,100,100, 0.25);
+		-ms-box-shadow: 2px 2px 2px rgba(100,100,100, 0.25);
+			box-shadow: 2px 2px 2px rgba(100,100,100, 0.25);
+
+	transition: 0.5s;
+}
+
+.play-list {
+	list-style: none;
+	width: 95%;
+	margin: 0 auto;
+	padding: 0;
+}
+
+.play-list .list-item {
+	padding: 8px 4px;
+	border-bottom: 1px solid #eee;
+}
+
+.play-list .list-item:last-child {
+	border-bottom: none;	
 }

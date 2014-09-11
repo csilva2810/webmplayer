@@ -10,6 +10,7 @@ Player = (function(window, document, undefined) {
 	timeLine       = document.querySelector("#timeline"),
 	musicTimeCount = document.querySelector("#time-count"),
 	musicTime      = document.querySelector("#time"),
+	playListElement= document.querySelector("#play-list"),
 	currentTrack   = 0,
 	playList 	   = [];
 
@@ -136,21 +137,31 @@ Player = (function(window, document, undefined) {
 	//muda a posicao do timeline
 	var timeLineUpdate = function() {
 		timeLine.value = player.currentTime;
-	}
+	};
 
 	//seta o tamanho maximo do timeline
 	var setTimeLineMax = function(time) {
 		timeLine.setAttribute( "max", Math.round(player.duration) );
-	}
+	};
 
 	//atualiza o label do tamanho da musica
 	var setMusicTime = function(time) {
 		musicTime.innerHTML = convertTime(time);
-	}
+	};
 
 	//atualiza o contador de tempo da musica em reproducao
 	var musicCountUpdate = function(time) {
 		musicTimeCount.innerHTML = convertTime(time);
+	};
+
+	//cria a playlist das musicas selecionadas
+	var createPlayList = function() {
+		var listItem, musicName;
+		for (var i = 0, len = playList.length; i < len; i++) {
+			musicName = playList[i].name.replace(".mp3", "");
+			listItem = "<li class='list-item'><button type='button' class='btn player-btn small icon icon-play'></button> - "+musicName+"</li>";
+			playListElement.innerHTML += listItem;
+		};
 	}
 
 	//funcao de ajuda para converter o tempo da musica de segundos para hh:mm:ss
@@ -198,7 +209,8 @@ Player = (function(window, document, undefined) {
 	return {
 		player: player,
 		playList: playList,
-		playMusic: playMusic
+		playMusic: playMusic,
+		createPlayList: createPlayList
 	}
 
 })(window, document);
