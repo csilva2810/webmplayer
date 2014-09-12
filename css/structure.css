@@ -19,6 +19,16 @@ html, body {
 	background: 			  radial-gradient(circle, #fff, #EAEDF1);
 }
 
+.dark html, .dark body {
+	color: #aaa;
+
+	background: #5A5D61;
+	background: -webkit-radial-gradient(circle, #888, #5A5D61);
+	background:    -moz-radial-gradient(circle, #888, #5A5D61);
+	background:     -ms-radial-gradient(circle, #888, #5A5D61);
+	background: 			  radial-gradient(circle, #888, #5A5D61);
+}
+
 header, section, footer, aside, nav, main, article, figure { 
 	display: block; 
 }
@@ -42,6 +52,15 @@ header, section, footer, aside, nav, main, article, figure {
 	          transition: 0.2s;
 }
 
+.dark .container {
+	background: #3A3D41;
+
+	-webkit-box-shadow: 0 1px 3px 1px rgba(0,0,0, 0.5);
+	   -moz-box-shadow: 0 1px 3px 1px rgba(0,0,0, 0.5);
+		  -ms-box-shadow: 0 1px 3px 1px rgba(0,0,0, 0.5);
+		      box-shadow: 0 1px 3px 1px rgba(0,0,0, 0.5);
+}
+
 .header {
 	background: white;
 	position: relative;
@@ -52,12 +71,106 @@ header, section, footer, aside, nav, main, article, figure {
 	border-radius: 8px 8px 0 0;
 }
 
+.dark .header {
+	background: #3A3D41;
+	border-bottom: 1px solid #444;
+}
+
 .logo {
 	position: absolute;
 	margin: 4px 8px;
 	font-size: 1.5em;
-	color: #777;
+	color: #33cc9c;
 	font-weight: bold;
+}
+
+.user-preferences {
+	position: absolute;
+	right: 50px;
+	margin: 4px 8px;
+}
+
+.user-preferences:hover .preferences,
+.btn-user-prefences:hover .preferences,
+.btn-user-prefences:focus .preferences {
+	visibility: visible;
+	opacity: 1;
+}
+
+.preferences {
+	position: absolute;
+	z-index: 1;
+	right: -50px;
+	padding: 0;
+	margin: 12px 0;
+	width: 100px;
+	border-radius: 8px;
+	border: 1px solid #eee;
+	background: white;
+	visibility: hidden;
+	opacity: 0;
+
+	list-style: none;
+
+	-webkit-box-shadow: 1px 1px 1px 0 rgba(25,25,25, 0.1);
+	   -moz-box-shadow: 1px 1px 1px 0 rgba(25,25,25, 0.1);
+		  -ms-box-shadow: 1px 1px 1px 0 rgba(25,25,25, 0.1);
+		      box-shadow: 1px 1px 1px 0 rgba(25,25,25, 0.1);
+
+  -webkit-transition: 0.2s;
+     -moz-transition: 0.2s;
+      -ms-transition: 0.2s;
+          transition: 0.2s;
+}
+
+.dark .preferences {
+	background: #333;
+	border: none;
+
+	-webkit-box-shadow: 1px 2px 2px 0 rgba(25,25,25, 0.5);
+	   -moz-box-shadow: 1px 2px 2px 0 rgba(25,25,25, 0.5);
+		  -ms-box-shadow: 1px 2px 2px 0 rgba(25,25,25, 0.5);
+		      box-shadow: 1px 2px 2px 0 rgba(25,25,25, 0.5);
+}
+
+.preferences::before {
+	content: '';
+	position: absolute;
+	top: -15px;
+	left: 18px;
+	border: 7px solid transparent;
+	border-bottom: 7px solid #eee;
+}
+
+.dark .preferences::before {
+	border-bottom-color: #333;
+}
+
+.preferences-title {
+	color: #33cc9c;
+	padding: 0;
+	margin: 0;
+	text-align: center;
+}
+
+.preferences-item {
+	cursor: pointer;
+	padding: 0 4px;
+	margin: 0;
+	font-size: 14px;
+}
+
+.preferences-item:last-child {
+	border-bottom: none;
+	border-radius: 0 0 8px 8px;
+}
+
+.preferences-item:hover {
+	background: #fafafa;
+}
+
+.dark .preferences-item:hover {
+	background: #4c5056;
 }
 
 .upload-wrap {
@@ -86,6 +199,11 @@ header, section, footer, aside, nav, main, article, figure {
 	padding: 20px;
 	background: #fdfdfd;
 	border-radius: 0 0 8px 8px;
+}
+
+.dark .player-wrap {
+	background: #3A3D41;
+	border-top: 1px solid #444;
 }
 
 .controls-wrap {

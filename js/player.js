@@ -2,8 +2,8 @@ var Player = (function(window, document, undefined) {
 
 	var player      = document.querySelector("#player"),
 	btnPlayPause    = document.querySelector("#play-pause"),
-	btnPrev 	    = document.querySelector("#prev"),
-	btnNext 	    = document.querySelector("#next"),
+	btnPrev 	      = document.querySelector("#prev"),
+	btnNext 	      = document.querySelector("#next"),
 	btnRepeat 	    = document.querySelector("#repeat"),
 	btnRandom 	    = document.querySelector("#random"),
 	volumeControl   = document.querySelector("#volume"),
@@ -13,7 +13,7 @@ var Player = (function(window, document, undefined) {
 	musicName       = document.querySelector("#music-name"),
 	playListElement = document.querySelector("#play-list"),
 	loading         = document.querySelector("#loading-music"),
-    currentTrack    = 0,
+  currentTrack    = 0,
 	playList 	    = [];
 
 	//atacha a musica passada como argumento no player
@@ -25,7 +25,7 @@ var Player = (function(window, document, undefined) {
 
 		reader.onload = (function(player) { 
 			return function(e){
-				player.src = e.target.result;
+				player.src = e.target.result || event.target.result;
 			}; 
 		})(player);
 
@@ -139,7 +139,7 @@ var Player = (function(window, document, undefined) {
 
 	//muda o tempo atual da musica em reproducao
 	var changeTime = function() {
-		player.currentTime = timeLine.value;
+		if (player.readyState != 0) player.currentTime = timeLine.value;
 	};
 
 	//muda a posicao do timeline
