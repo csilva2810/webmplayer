@@ -8,3 +8,5 @@ A ideia desse projeto é criar um Music Player onde o usuário possa tocar músi
 Qual é o Objetivo?
 
 Apenas aprender as novas API's do HTML5 e me divertir fazendo algo que eu gosto :)
+
+<h4><a href="http://csilva2810.github.io/WebMPlayer/demo/index.html">Veja Funcionando</a></h4>
