@@ -18,7 +18,7 @@ fileElement.addEventListener("change", function() {
 		Player.playList.push(this.files[i]);
 	}
 	//carregando primeira musica por padrão
-	Player.playMusic(0, 0);
+	Player.playMusic(0);
 	//criando a play list das musicas selecionadas
 	Player.createPlayList();
 
