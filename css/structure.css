@@ -32,13 +32,13 @@ header, section, footer, aside, nav, main, article, figure {
 	
 	-webkit-box-shadow: 1px 1px 5px 2px rgba(0,0,0, 0.2);
 	   -moz-box-shadow: 1px 1px 5px 2px rgba(0,0,0, 0.2);
-			-ms-box-shadow: 1px 1px 5px 2px rgba(0,0,0, 0.2);
-		      box-shadow: 1px 1px 5px 2px rgba(0,0,0, 0.2);
+		-ms-box-shadow: 1px 1px 5px 2px rgba(0,0,0, 0.2);
+		    box-shadow: 1px 1px 5px 2px rgba(0,0,0, 0.2);
 
-  -webkit-transition: 0.2s;
+    -webkit-transition: 0.2s;
 	   -moz-transition: 0.2s;
 	    -ms-transition: 0.2s;
-				  transition: 0.2s;
+	        transition: 0.2s;
 }
 
 .header {
@@ -89,6 +89,10 @@ header, section, footer, aside, nav, main, article, figure {
 
 .controls-wrap {
 	margin: 0 auto;
+}
+
+.music-info {
+	margin: 8px 0;
 }
 
 .timeline-wrap {
