@@ -2,8 +2,8 @@ var Player = (function(window, document, undefined) {
 
 	var player      = document.querySelector("#player"),
 	btnPlayPause    = document.querySelector("#play-pause"),
-	btnPrev 	    = document.querySelector("#prev"),
-	btnNext 	    = document.querySelector("#next"),
+	btnPrev 	      = document.querySelector("#prev"),
+	btnNext 	      = document.querySelector("#next"),
 	btnRepeat 	    = document.querySelector("#repeat"),
 	btnRandom 	    = document.querySelector("#random"),
 	volumeControl   = document.querySelector("#volume"),
@@ -13,8 +13,9 @@ var Player = (function(window, document, undefined) {
 	musicName       = document.querySelector("#music-name"),
 	playListElement = document.querySelector("#play-list"),
 	loading         = document.querySelector("#loading-music"),
-  	currentTrack    = 0,
-	playList 	    = [];
+  currentTrack    = 0,
+  isPlaying       = false,
+	playList 	      = [];
 
 	//atacha a musica passada como argumento no player
 	var playMusic = function(track) {
@@ -23,19 +24,18 @@ var Player = (function(window, document, undefined) {
 
 		reader.onloadstart = showLoading();
 
-		reader.onload = (function(player) { 
-			return function(e){
-				player.src = e.target.result || event.target.result;
-			}; 
-		})(player);
+		reader.onload = function(e) {
+			player.src = reader.result;
+		}
 
 		reader.readAsDataURL(Player.playList[track]);
+
 		Player.currentTrack = parseInt(track);
 
 		player.onloadeddata = function() {
 			play(track, parseInt( player.getAttribute('data-current-track')) );
-			setTimeLineMax(this.duration);
-			setMusicTime(this.duration);
+			setTimeLineMax(player.duration);
+			setMusicTime(player.duration);
 			setMusicName(Player.playList[track].name);
 
 			hideLoading();
@@ -48,20 +48,17 @@ var Player = (function(window, document, undefined) {
 
 		if (player.src == "") return false;
 
-		switch (btnPlayPause.getAttribute("data-playState")) {
-			case 'pause':
+		if (Player.isPlaying === false) {
 				play();
-			break;
-			case 'play':
+		} else {
 				pause();
-			break;
 		}
 		
 	};
 
 	var play = function(track, lastTrack) {
 		if (player.src == "") return false;
-		btnPlayPause.setAttribute("data-playState", "play");
+		Player.isPlaying = true;
 		btnPlayPause.classList.remove("icon-play");
 		btnPlayPause.classList.add("icon-pause");
 		player.play(); //metodo nativo do objeto HTMLAudioElement
@@ -73,7 +70,7 @@ var Player = (function(window, document, undefined) {
 
 	var pause = function() {
 		if (player.src == "") return false;
-		btnPlayPause.setAttribute("data-playState", "pause");
+		Player.isPlaying = false;
 		btnPlayPause.classList.remove("icon-pause");
 		btnPlayPause.classList.add("icon-play");
 		player.pause(); //metodo nativo do objeto HTMLAudioElement
