@@ -174,8 +174,8 @@
 .btn-color:active {
 	-webkit-box-shadow: inset 1px 2px 2px 0 rgba(25,25,25,0.25);
 	   -moz-box-shadow: inset 1px 2px 2px 0 rgba(25,25,25,0.25);
-		-ms-box-shadow: inset 1px 2px 2px 0 rgba(25,25,25,0.25);
-		    box-shadow: inset 1px 2px 2px 0 rgba(25,25,25,0.25);
+		  -ms-box-shadow: inset 1px 2px 2px 0 rgba(25,25,25,0.25);
+		      box-shadow: inset 1px 2px 2px 0 rgba(25,25,25,0.25);
 }
 
 .btn-color.green {
@@ -195,14 +195,15 @@
 }
 
 input#timeline {
-	width: 90%;
+	width: 75%;
 	vertical-align: middle;
+	cursor: auto;
 }
 
 .volume-wrap {
 	position: absolute;
-	right: 0;
-	bottom: 15px;
+	right: 4px;
+	bottom: 5px;
 }
 
 .volume-wrap:hover .volume-box,
@@ -274,13 +275,14 @@ input#volume {
 .loading {
 	margin-bottom: 4px;
 	display: none;
-	-webkit-animation: blink 1.2s infinite;
-		 -moz-animation: blink 1.2s infinite;
-			    animation: blink 1.2s infinite;
 }
 
 .loading.show {
 	display: block;
+
+	-webkit-animation: blink 1s ease-in-out 0s infinite alternate;
+	   -moz-animation: blink 1s ease-in-out 0s infinite alternate;
+		      animation: blink 1s ease-in-out 0s infinite alternate;
 }
 
 @-webkit-keyframes blink {
@@ -301,7 +303,19 @@ input#volume {
 
 	-webkit-animation: blink 1.5s infinite;
 	   -moz-animation: blink 1.5s infinite;
-				  animation: blink 1.5s infinite;
+			    animation: blink 1.5s infinite;
+}
+
+.blue .playing {
+	color: #60d4d4;
+}
+
+.red .playing {
+	color: #f25050;
+}
+
+.pink .playing {
+	color: #E24B85;
 }
 
 .opaque {

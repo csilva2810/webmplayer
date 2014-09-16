@@ -8,6 +8,8 @@
 	<link type="text/css" rel="stylesheet" href="css/structure.css">
 	<link type="text/css" rel="stylesheet" href="css/components.css">
 	<link type="text/css" rel="stylesheet" href="css/icons.css">
+
+	<link rel="shortcut icon" href="img/icon.ico">
 	
 </head>
 <body>
@@ -56,37 +58,33 @@
 
 			<audio id="player" preload="auto" data-current-track="0">Seu browser não suporta reprodução de áudio.</audio>
 
-			<!--controles do player -->
 			<div class="controls-wrap">
 				<button type="button" class="btn player-btn icon icon-repeat"        id="repeat" data-repeat="false"></button>
 				<button type="button" class="btn player-btn icon icon-chevron-left"  id="prev"></button>
-				<button type="button" class="btn player-btn icon icon-play large"    id="play-pause" data-playState="pause"></button>
+				<button type="button" class="btn player-btn icon icon-play large"    id="play-pause"></button>
 				<button type="button" class="btn player-btn icon icon-chevron-right" id="next"></button>
 				<button type="button" class="btn player-btn icon icon-random"        id="random" data-random="false"></button>
 			</div>	
-			<!-- /controles -->
-
-			<!-- informações da música -->
+			
 			<div class="music-info">
-				<span id="loading-music" class="loading">Carregando...</span>
+				<div class="loading-wrap">
+					<span id="loading-music" class="loading">Carregando...</span>
+				</div>
 				<label id="music-name"> -- </label>
 			</div>
-			<!-- /informações -->
 
-			<!-- timeline -->
 			<div class="timeline-wrap">
 				<label id="time-count">00:00</label>
 				<input type="range" class="range opaque" min="0" max="100" id="timeline" value="0" step="any">
 				<label id="time">00:00</label>
 
-				<span class="volume-wrap">
+				<div class="volume-wrap">
 					<button type="button" class="btn-volume btn player-btn small icon icon-volume-down"></button>
 					<span class="volume-box">
 						<input type="range" class="range" min="0" max="10" id="volume" value="10">
 					</span>
-				</span>
+				</div>
 			</div>
-			<!-- /timeline -->
 
 		</section>
 

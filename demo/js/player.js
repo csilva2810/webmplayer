@@ -2,8 +2,8 @@ var Player = (function(window, document, undefined) {
 
 	var player      = document.querySelector("#player"),
 	btnPlayPause    = document.querySelector("#play-pause"),
-	btnPrev 	    = document.querySelector("#prev"),
-	btnNext 	    = document.querySelector("#next"),
+	btnPrev 	      = document.querySelector("#prev"),
+	btnNext 	      = document.querySelector("#next"),
 	btnRepeat 	    = document.querySelector("#repeat"),
 	btnRandom 	    = document.querySelector("#random"),
 	volumeControl   = document.querySelector("#volume"),
@@ -13,8 +13,9 @@ var Player = (function(window, document, undefined) {
 	musicName       = document.querySelector("#music-name"),
 	playListElement = document.querySelector("#play-list"),
 	loading         = document.querySelector("#loading-music"),
-  	currentTrack    = 0,
-	playList 	    = [];
+  currentTrack    = 0,
+  isPlaying       = false,
+	playList 	      = [];
 
 	//atacha a musica passada como argumento no player
 	var playMusic = function(track) {
@@ -23,19 +24,18 @@ var Player = (function(window, document, undefined) {
 
 		reader.onloadstart = showLoading();
 
-		reader.onload = (function(player) { 
-			return function(e){
-				player.src = e.target.result || event.target.result;
-			}; 
-		})(player);
+		reader.onload = function(e) {
+			player.src = reader.result;
+		}
 
 		reader.readAsDataURL(Player.playList[track]);
+
 		Player.currentTrack = parseInt(track);
 
 		player.onloadeddata = function() {
 			play(track, parseInt( player.getAttribute('data-current-track')) );
-			setTimeLineMax(this.duration);
-			setMusicTime(this.duration);
+			setTimeLineMax(player.duration);
+			setMusicTime(player.duration);
 			setMusicName(Player.playList[track].name);
 
 			hideLoading();
@@ -48,61 +48,56 @@ var Player = (function(window, document, undefined) {
 
 		if (player.src == "") return false;
 
-		switch (btnPlayPause.getAttribute("data-playState")) {
-			case 'pause':
+		if (Player.isPlaying === false) {
 				play();
-			break;
-			case 'play':
+		} else {
 				pause();
-			break;
 		}
 		
 	};
 
 	var play = function(track, lastTrack) {
-		btnPlayPause.setAttribute("data-playState", "play");
+		if (player.src == "") return false;
+		Player.isPlaying = true;
 		btnPlayPause.classList.remove("icon-play");
 		btnPlayPause.classList.add("icon-pause");
 		player.play(); //metodo nativo do objeto HTMLAudioElement
 		player.setAttribute("data-current-track", track);
 
-		document.querySelector("span[id=list-icon-"+lastTrack+"]").classList.remove("playing");
-		document.querySelector("span[id=list-icon-"+track+"]").classList.add("playing");
+		document.querySelector("#list-icon-"+lastTrack).classList.remove("playing");
+		document.querySelector("#list-icon-"+track).classList.add("playing");
 	};
 
 	var pause = function() {
-		btnPlayPause.setAttribute("data-playState", "pause");
+		if (player.src == "") return false;
+		Player.isPlaying = false;
 		btnPlayPause.classList.remove("icon-pause");
 		btnPlayPause.classList.add("icon-play");
 		player.pause(); //metodo nativo do objeto HTMLAudioElement
 	};
 
-	//toca a musica anterior
 	var playPrev = function() {
+		if (player.src == "") return false;
 		var prev = Player.currentTrack - 1;
 		
 		(prev > -1) ? playMusic(prev) : playMusic(0);
 	};
 
-	//toca a proxima musica
 	var playNext = function() {
+		if (player.src == "") return false;
+
+		var next = Player.currentTrack + 1;
+		var lastMusic = Player.playList.length - 1;
 
 		if (btnRandom.getAttribute("data-random") == "false") {
-			var next = Player.currentTrack + 1;
-			var lastMusic = Player.playList.length - 1;
-
 			(next <= lastMusic) ? playMusic(next) : playMusic(0) ;
 		} else {
-
-			var random = Math.round( Math.random() * (Player.playList.length - 1) );
-
+			var random = Math.round( Math.random() * (lastMusic) );
 			playMusic(random);
-
 		}
 
 	};
 
-	//ativa e desativa a repeticao
 	var repeat = function() {
 		switch (btnRepeat.getAttribute("data-repeat")) {
 			case "false":
@@ -118,7 +113,6 @@ var Player = (function(window, document, undefined) {
 		}
 	};
 
-	//ativa e desativa musica randomica
 	var randomize = function() {
 		switch (btnRandom.getAttribute("data-random")) {
 			case "false":
@@ -132,32 +126,26 @@ var Player = (function(window, document, undefined) {
 		}
 	};
 
-	//muda o volume
 	var changeVolume = function() {
 		player.volume = volumeControl.value / 10;
 	};
 
-	//muda o tempo atual da musica em reproducao
 	var changeTime = function() {
 		if (player.readyState != 0) player.currentTime = timeLine.value;
 	};
 
-	//muda a posicao do timeline
 	var timeLineUpdate = function() {
 		timeLine.value = player.currentTime;
 	};
 
-	//seta o tamanho maximo do timeline
 	var setTimeLineMax = function(time) {
 		timeLine.setAttribute( "max", Math.round(time) );
 	};
 
-	//atualiza o label do tamanho da musica
 	var setMusicTime = function(time) {
 		musicTime.innerHTML = convertTime(time);
 	};
 
-	//atualiza o contador de tempo da musica em reproducao
 	var musicCountUpdate = function(time) {
 		musicTimeCount.innerHTML = convertTime(time);
 	};
@@ -166,17 +154,25 @@ var Player = (function(window, document, undefined) {
 		musicName.innerHTML = name.replace(".mp3", "");
 	};
 
-	//cria a playlist das musicas selecionadas
 	var createPlayList = function() {
 		var listItem, musicName;
 		playListElement.innerHTML = "";
 		for (var i = 0, len = Player.playList.length; i < len; i++) {
 			musicName = Player.playList[i].name.replace(".mp3", "");
-			listItem = "<li class='list-item'>";
-			listItem+= "    <button type='button' onclick=\"Player.playMusic("+i+");\" class='btn player-btn small icon icon-play'></button>   "+musicName+"";
-			listItem+= "    <span id='list-icon-"+i+"' class='list-icon icon icon-headphones'></span>";
-			listItem+= "</li>";
-			playListElement.innerHTML += listItem;
+
+			var li = document.createElement("li");
+			var button = document.createElement("button");
+			var span = document.createElement("span");
+			li.setAttribute("class", "list-item");
+			button.setAttribute("type", "button");
+			button.setAttribute("class", "btn player-btn small icon icon-play");
+			span.setAttribute("id", "list-icon-"+i);
+			span.setAttribute("class", "list-icon icon icon-headphones");
+
+			li.appendChild(button);
+			li.innerHTML += musicName;
+			li.appendChild(span);
+			playListElement.appendChild(li);
 		};
 	};
 
@@ -188,7 +184,6 @@ var Player = (function(window, document, undefined) {
 		loading.classList.remove("show");
 	};
 
-	//funcao de ajuda para converter o tempo da musica de segundos para hh:mm:ss
 	var convertTime = function(time) {
 
 		if (isNaN(time) || time == "" || typeof time != 'number') return "00:00";

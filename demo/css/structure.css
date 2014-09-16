@@ -46,10 +46,10 @@ header, section, footer, aside, nav, main, article, figure {
 		  -ms-box-shadow: 0 1px 2px 0 rgba(0,0,0, 0.2);
 		      box-shadow: 0 1px 2px 0 rgba(0,0,0, 0.2);
 
-    -webkit-transition: 0.2s;
-	     -moz-transition: 0.2s;
-	      -ms-transition: 0.2s;
-	          transition: 0.2s;
+  -webkit-transition: 0.2s;
+     -moz-transition: 0.2s;
+      -ms-transition: 0.2s;
+          transition: 0.2s;
 }
 
 .dark .container {
@@ -218,7 +218,7 @@ header, section, footer, aside, nav, main, article, figure {
 	min-height: 200px;
 	max-height: 210px;
 	overflow-y: auto;
-	margin: 0 8px;
+	margin: 0;
 }
 
 .player-wrap {
@@ -228,7 +228,7 @@ header, section, footer, aside, nav, main, article, figure {
 	min-height: 150px;
 	border-top: 1px solid #eee;
 	text-align: center;
-	padding: 20px;
+	padding: 10px 0;
 	background: #fdfdfd;
 	border-radius: 0 0 8px 8px;
 }
@@ -239,16 +239,24 @@ header, section, footer, aside, nav, main, article, figure {
 }
 
 .controls-wrap {
-	margin: 0 auto;
+	margin: 4px auto;
 }
 
 .music-info {
-	margin: 8px 0;
+	width: 100%;
+	margin: 4px auto;
+}
+
+.loading-wrap {
+	text-align: center;
+	width: 10%;
+	height: 20px;
+	margin: 0 auto;
 }
 
 .timeline-wrap {
-	width: 95%;
-	margin: 0 auto;
+	width: 90%;
+	margin: 4px auto;
 }
 
 @media screen and (max-width: 700px) {
@@ -264,11 +272,21 @@ header, section, footer, aside, nav, main, article, figure {
 	}
 
 	.timeline-wrap {
-		margin: 0;
+		margin: 0 auto;
 	}
 
 	input#timeline {
 		width: 50% !important;
+	}
+
+	.btn.player-btn.large {
+		width: 60px;
+		height: 60px;
+	}
+
+	.btn.player-btn {
+		width: 40px;
+		height: 40px;
 	}
 
 }
