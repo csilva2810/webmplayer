@@ -56,7 +56,6 @@
 
 			<audio id="player" preload="auto" data-current-track="0">Seu browser não suporta reprodução de áudio.</audio>
 
-			<!--controles do player -->
 			<div class="controls-wrap">
 				<button type="button" class="btn player-btn icon icon-repeat"        id="repeat" data-repeat="false"></button>
 				<button type="button" class="btn player-btn icon icon-chevron-left"  id="prev"></button>
@@ -64,16 +63,14 @@
 				<button type="button" class="btn player-btn icon icon-chevron-right" id="next"></button>
 				<button type="button" class="btn player-btn icon icon-random"        id="random" data-random="false"></button>
 			</div>	
-			<!-- /controles -->
-
-			<!-- informações da música -->
+			
 			<div class="music-info">
-				<span id="loading-music" class="loading">Carregando...</span>
+				<div class="loading-wrap">
+					<span id="loading-music" class="loading">Carregando...</span>
+				</div>
 				<label id="music-name"> -- </label>
 			</div>
-			<!-- /informações -->
 
-			<!-- timeline -->
 			<div class="timeline-wrap">
 				<label id="time-count">00:00</label>
 				<input type="range" class="range opaque" min="0" max="100" id="timeline" value="0" step="any">
@@ -86,7 +83,6 @@
 					</span>
 				</span>
 			</div>
-			<!-- /timeline -->
 
 		</section>
 

@@ -274,13 +274,14 @@ input#volume {
 .loading {
 	margin-bottom: 4px;
 	display: none;
-	-webkit-animation: blink 1.2s infinite;
-		 -moz-animation: blink 1.2s infinite;
-			    animation: blink 1.2s infinite;
 }
 
 .loading.show {
 	display: block;
+
+	-webkit-animation: blink 1s ease-in-out 0s infinite alternate;
+	   -moz-animation: blink 1s ease-in-out 0s infinite alternate;
+		    animation: blink 1s ease-in-out 0s infinite alternate;
 }
 
 @-webkit-keyframes blink {
@@ -301,7 +302,19 @@ input#volume {
 
 	-webkit-animation: blink 1.5s infinite;
 	   -moz-animation: blink 1.5s infinite;
-				  animation: blink 1.5s infinite;
+			animation: blink 1.5s infinite;
+}
+
+.blue .playing {
+	color: #60d4d4;
+}
+
+.red .playing {
+	color: #f25050;
+}
+
+.pink .playing {
+	color: #E24B85;
 }
 
 .opaque {

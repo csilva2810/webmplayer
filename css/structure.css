@@ -243,7 +243,15 @@ header, section, footer, aside, nav, main, article, figure {
 }
 
 .music-info {
-	margin: 8px 0;
+	width: 100%;
+	margin: 8px auto;
+}
+
+.loading-wrap {
+	text-align: center;
+	width: 10%;
+	height: 20px;
+	margin: 0 auto;
 }
 
 .timeline-wrap {
