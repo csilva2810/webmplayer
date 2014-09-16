@@ -119,8 +119,8 @@ header, section, footer, aside, nav, main, article, figure {
 	border-radius: 8px;
 	border: 1px solid #eee;
 	background: #fcfcff;
-	visibility: visible;
-	opacity: 1;
+	visibility: hidden;
+	opacity: 0;
 
 	-webkit-box-shadow: 1px 1px 1px 0 rgba(25,25,25, 0.1);
 	   -moz-box-shadow: 1px 1px 1px 0 rgba(25,25,25, 0.1);
@@ -195,6 +195,10 @@ header, section, footer, aside, nav, main, article, figure {
 
 .theme-item:first-child {
 	border-radius: 8px 0 0 0;
+}
+
+.theme-item:hover {
+	background: #eee;
 }
 
 .dark .theme-item:hover {

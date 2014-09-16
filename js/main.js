@@ -53,14 +53,14 @@ colorPink.addEventListener("click", function() {
 }, false);
 
 var setTheme = function(theme) {
-	document.querySelector("html").className = document.querySelector("html").className.replace(/(dark|light)/g, "");
+	document.querySelector("html").className = document.querySelector("html").className.replace(/(dark|light)/g, theme);
 	document.querySelector("html").classList.add(theme);
 
 	setLocalStorage("theme", theme);
 };
 
 var setColor = function(color) {
-	document.querySelector("html").className = document.querySelector("html").className.replace(/(blue|red|green|pink)/g, "");
+	document.querySelector("html").className = document.querySelector("html").className.replace(/(blue|red|green|pink)/g, color);
 	document.querySelector("html").classList.add(color);
 
 	setLocalStorage("color", color);

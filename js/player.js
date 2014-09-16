@@ -173,7 +173,8 @@ var Player = (function(window, document, undefined) {
 		for (var i = 0, len = Player.playList.length; i < len; i++) {
 			musicName = Player.playList[i].name.replace(".mp3", "");
 			listItem = "<li class='list-item'>";
-			listItem+= "    <button type='button' onclick=\"Player.playMusic("+i+");\" class='btn player-btn small icon icon-play'></button>   "+musicName+"";
+			listItem+= "    <button type='button' onclick=\"Player.playMusic("+i+");\" class='btn player-btn small icon icon-play'></button>";
+			listItem+= 		musicName;
 			listItem+= "    <span id='list-icon-"+i+"' class='list-icon icon icon-headphones'></span>";
 			listItem+= "</li>";
 			playListElement.innerHTML += listItem;
