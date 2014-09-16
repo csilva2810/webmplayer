@@ -84,33 +84,43 @@ header, section, footer, aside, nav, main, article, figure {
 	font-weight: bold;
 }
 
+.blue .logo {
+	color: #60d4d4;
+}
+
+.red .logo {
+	color: #f25050;
+}
+
+.pink .logo {
+	color: #E24B85;
+}
+
 .user-preferences {
 	position: absolute;
 	right: 50px;
 	margin: 4px 8px;
 }
 
-.user-preferences:hover .preferences,
-.btn-user-prefences:hover .preferences,
-.btn-user-prefences:focus .preferences {
+.user-preferences:hover .wrap,
+.btn-user-prefences:hover .wrap,
+.btn-user-prefences:focus .wrap {
 	visibility: visible;
 	opacity: 1;
 }
 
-.preferences {
+.user-preferences .wrap {
 	position: absolute;
 	z-index: 1;
-	right: -50px;
+	right: 0px;
 	padding: 0;
 	margin: 12px 0;
-	width: 100px;
+	width: 200px;
 	border-radius: 8px;
 	border: 1px solid #eee;
-	background: white;
+	background: #fcfcff;
 	visibility: hidden;
 	opacity: 0;
-
-	list-style: none;
 
 	-webkit-box-shadow: 1px 1px 1px 0 rgba(25,25,25, 0.1);
 	   -moz-box-shadow: 1px 1px 1px 0 rgba(25,25,25, 0.1);
@@ -123,7 +133,7 @@ header, section, footer, aside, nav, main, article, figure {
           transition: 0.2s;
 }
 
-.dark .preferences {
+.dark .user-preferences .wrap {
 	background: #333;
 	border: none;
 
@@ -133,43 +143,65 @@ header, section, footer, aside, nav, main, article, figure {
 		      box-shadow: 1px 2px 2px 0 rgba(25,25,25, 0.5);
 }
 
-.preferences::before {
+.wrap::before {
 	content: '';
 	position: absolute;
 	top: -15px;
-	left: 18px;
+	left: 170px;
 	border: 7px solid transparent;
 	border-bottom: 7px solid #eee;
 }
 
-.dark .preferences::before {
+.dark .wrap::before {
 	border-bottom-color: #333;
 }
 
-.preferences-title {
-	color: #33cc9c;
+.theme,
+.color {
+	list-style: none;
 	padding: 0;
 	margin: 0;
-	text-align: center;
 }
 
-.preferences-item {
+.theme {
+	width: 99px;
+	float: left;
+	border-right: 1px solid rgba(0,0,0,0.1);
+}
+
+.color {
+	width: 99px;
+	float: right;
+	margin: 4px 0;
+}
+
+.color-item {
+	margin: 0 11px;
+}
+
+.theme-item {
+	width: 100%;
 	cursor: pointer;
 	padding: 0 4px;
 	margin: 0;
 	font-size: 14px;
+	text-align: center;
 }
 
-.preferences-item:last-child {
+.theme-item:last-child {
 	border-bottom: none;
-	border-radius: 0 0 8px 8px;
+	border-radius: 0 0 0 8px;
 }
 
-.preferences-item:hover {
-	background: #fafafa;
+.theme-item:first-child {
+	border-radius: 8px 0 0 0;
 }
 
-.dark .preferences-item:hover {
+.theme-item:hover {
+	background: #eee;
+}
+
+.dark .theme-item:hover {
 	background: #4c5056;
 }
 
@@ -216,7 +248,7 @@ header, section, footer, aside, nav, main, article, figure {
 
 .timeline-wrap {
 	width: 95%;
-	margin: 0 8px;
+	margin: 0 auto;
 }
 
 @media screen and (max-width: 700px) {
