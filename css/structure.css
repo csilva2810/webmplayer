@@ -214,7 +214,7 @@ header, section, footer, aside, nav, main, article, figure {
 
 .play-list-wrap {
 	position: relative;
-	width: 99%;
+	width: 99.8%;
 	min-height: 200px;
 	max-height: 210px;
 	overflow-y: auto;

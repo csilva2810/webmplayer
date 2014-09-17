@@ -448,21 +448,25 @@ input#volume {
 }
 
 ::-webkit-scrollbar {  
-  width: 12px;
+  width: 10px;
 }  
 
 ::-webkit-scrollbar-track {  
   border-radius: 100px;
   background: #fff;
   border: 1px solid #ddd;
-  box-shadow: inset 1px 1px 2px 0 rgba(50,50,50,0.1);
 }  
 
 ::-webkit-scrollbar-thumb {  
   border-radius: 100px;
-  background: #ddd;  
+  background: #ddd;
 }  
 
 ::-webkit-scrollbar-thumb:hover {  
   background: #ccc;  
+  
+}
+
+::-webkit-scrollbar-thumb:active {  
+  background: #bbb;
 }
