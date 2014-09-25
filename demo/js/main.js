@@ -1,88 +1,95 @@
-var btnUpload   = document.querySelector("#btn-upload"),
-	fileElement = document.querySelector("#file-element"),
-	themeLight  = document.querySelector("#theme-light"),
-	themeDark   = document.querySelector("#theme-dark"),
-	colorGreen  = document.querySelector("#btn-green"),
-	colorBlue   = document.querySelector("#btn-blue"),
-	colorRed    = document.querySelector("#btn-red"),
-	colorPink   = document.querySelector("#btn-pink");
-		
-btnUpload.addEventListener("click", function(e) {
-	if (fileElement) {
-		fileElement.click();
-	}
-	
-	e.stopPropagation();
-	e.preventDefault();
-}, false);
+(function () {
+    "use strict";
+    var btnUpload   = document.querySelector("#btn-upload"),
+        fileElement = document.querySelector("#file-element"),
+        themeLight  = document.querySelector("#theme-light"),
+        themeDark   = document.querySelector("#theme-dark"),
+        colorGreen  = document.querySelector("#btn-green"),
+        colorBlue   = document.querySelector("#btn-blue"),
+        colorRed    = document.querySelector("#btn-red"),
+        colorPink   = document.querySelector("#btn-pink"),
+        htmlTag     = document.querySelector('html'),
+        
+        setLocalStorage = function (item, value) {
+            if (localStorage) {
+                localStorage.setItem(item, value);
+            } else {
+                return "";
+            }
+        },
 
-fileElement.addEventListener("change", function() {
+        getLocalStorage = function (item) {
+            if (localStorage.getItem(item)) {
+                return localStorage.getItem(item);
+            }
 
-	Player.playList = [];
-	for(var i = 0, len = this.files.length; i < len; i++) {
-		Player.playList.push(this.files[i]);
-	}
+            return "";
+        },
 
-	Player.playMusic(0);
-	Player.createPlayList();
+        setTheme = function (theme) {
+            htmlTag.className = document.querySelector("html").className.replace(/(dark|light)/g, "");
+            htmlTag.classList.add(theme);
 
-}, false);
+            setLocalStorage("theme", theme);
+        },
 
-themeLight.addEventListener("click", function() {
-	setTheme("light");
-}, false);
+        setColor = function (color) {
+            htmlTag.className = document.querySelector("html").className.replace(/(blue|red|green|pink)/g, "");
+            htmlTag.classList.add(color);
 
-themeDark.addEventListener("click", function() {
-	setTheme("dark");
-}, false);
+            setLocalStorage("color", color);
+        };
 
-colorGreen.addEventListener("click", function() {
-	setColor("green");
-}, false);
+    if (localStorage) {
+        setTheme(getLocalStorage('theme'));
+        setColor(getLocalStorage('color'));
+    }
 
-colorBlue.addEventListener("click", function() {
-	setColor("blue");
-}, false);
+    btnUpload.addEventListener("click", function (e) {
+        if (fileElement) {
+            fileElement.click();
+        }
 
-colorRed.addEventListener("click", function() {
-	setColor("red");
-}, false);
+        e.stopPropagation();
+        e.preventDefault();
+    }, false);
 
-colorPink.addEventListener("click", function() {
-	setColor("pink");
-}, false);
+    fileElement.addEventListener("change", function () {
+        var i,
+            len = this.files.length;
 
-var setTheme = function(theme) {
-	document.querySelector("html").className = document.querySelector("html").className.replace(/(dark|light)/g, theme);
-	document.querySelector("html").classList.add(theme);
+        Player.playList = [];
+        for (i = 0; i < len; i += 1) {
+            Player.playList.push(this.files[i]);
+        }
 
-	setLocalStorage("theme", theme);
-};
+        Player.playMusic(0);
+        Player.createPlayList();
 
-var setColor = function(color) {
-	document.querySelector("html").className = document.querySelector("html").className.replace(/(blue|red|green|pink)/g, color);
-	document.querySelector("html").classList.add(color);
+    }, false);
 
-	setLocalStorage("color", color);
-};
+    themeLight.addEventListener("click", function () {
+        setTheme("light");
+    }, false);
 
-var setLocalStorage = function(item, value) {
-	if ('localStorage' in window) {
-		localStorage.setItem(item, value);
-	} else {
-		return "";
-	}
-}
+    themeDark.addEventListener("click", function () {
+        setTheme("dark");
+    }, false);
 
-var getLocalStorage = function(item) {
-	if (localStorage.getItem(item)) {
-		return localStorage.getItem(item);
-	} else {
-		return "";
-	}
-}
+    colorGreen.addEventListener("click", function () {
+        setColor("green");
+    }, false);
 
-if ('localStorage' in window) {
-	setTheme(getLocalStorage('theme'));
-	setColor(getLocalStorage('color'));
-};
+    colorBlue.addEventListener("click", function () {
+        setColor("blue");
+    }, false);
+
+    colorRed.addEventListener("click", function () {
+        setColor("red");
+    }, false);
+
+    colorPink.addEventListener("click", function () {
+        setColor("pink");
+    }, false);
+
+}());

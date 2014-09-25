@@ -16,6 +16,8 @@ var Player = (function (window, document) {
             loading         = document.querySelector("#loading-music"),
             currentTrack    = 0,
             isPlaying       = false,
+            isRepeating     = false,
+            isRandomized    = false,
             playList        = [],
             rd              = new FileReader(),
 
@@ -29,6 +31,7 @@ var Player = (function (window, document) {
 
             //atacha a musica passada como argumento no player
             playMusic = function (track) {
+                
                 rd.onloadstart = showLoading();
 
                 rd.onload = function () {
@@ -37,10 +40,9 @@ var Player = (function (window, document) {
 
                 rd.readAsDataURL(Player.playList[track]);
 
-                Player.currentTrack = parseInt(track);
-
                 player.onloadeddata = function() {
-                    play(track, parseInt( player.getAttribute('data-current-track')) );
+                    play(track, parseInt(currentTrack) );
+                    currentTrack = parseInt(track) || 0;
                     setTimeLineMax(player.duration);
                     setMusicTime(player.duration);
                     setMusicName(Player.playList[track].name);
@@ -56,20 +58,19 @@ var Player = (function (window, document) {
                 if (player.src == "") return false;
 
                 if (Player.isPlaying === false) {
-                        play();
+                    play();
                 } else {
-                        pause();
+                    pause();
                 }
                 
             },
 
             play = function (track, lastTrack) {
                 if (player.src == "") return false;
-                Player.isPlaying = true;
+                isPlaying = true;
                 btnPlayPause.classList.remove("icon-play");
                 btnPlayPause.classList.add("icon-pause");
                 player.play(); //metodo nativo do objeto HTMLAudioElement
-                player.setAttribute("data-current-track", track);
 
                 document.querySelector("#list-icon-"+lastTrack).classList.remove("playing");
                 document.querySelector("#list-icon-"+track).classList.add("playing");
@@ -85,7 +86,7 @@ var Player = (function (window, document) {
 
             playPrev = function () {
                 if (player.src == "") return false;
-                var prev = Player.currentTrack - 1;
+                var prev = currentTrack - 1;
                 
                 (prev > -1) ? playMusic(prev) : playMusic(0);
             },
@@ -93,10 +94,10 @@ var Player = (function (window, document) {
             playNext = function () {
                 if (player.src == "") return false;
 
-                var next = Player.currentTrack + 1;
+                var next = currentTrack + 1;
                 var lastMusic = Player.playList.length - 1;
 
-                if (btnRandom.getAttribute("data-random") == "false") {
+                if (isRandomized === false) {
                     (next <= lastMusic) ? playMusic(next) : playMusic(0) ;
                 } else {
                     var random = Math.round( Math.random() * (lastMusic) );
@@ -106,30 +107,24 @@ var Player = (function (window, document) {
             },
 
             repeat = function () {
-                switch (btnRepeat.getAttribute("data-repeat")) {
-                    case "false":
-                        btnRepeat.classList.add("on");
-                        btnRepeat.setAttribute("data-repeat", "true");
-                        player.setAttribute("loop", "");
-                    break;
-                    case "true":
-                        btnRepeat.classList.remove("on");
-                        btnRepeat.setAttribute("data-repeat", "false");
-                        player.removeAttribute("loop");
-                    break;
+                if (isRepeating === false) {
+                    btnRepeat.classList.add("on");
+                    player.setAttribute("loop", "");
+                    isRepeating = true;
+                } else {
+                    btnRepeat.classList.remove("on");
+                    player.removeAttribute("loop");
+                    isRepeating = false;
                 }
             },
 
             randomize = function () {
-                switch (btnRandom.getAttribute("data-random")) {
-                    case "false":
-                        btnRandom.classList.add('on');
-                        btnRandom.setAttribute("data-random", "true");
-                    break;
-                    case "true":
-                        btnRandom.classList.remove('on');
-                        btnRandom.setAttribute("data-random", "false");
-                    break;
+                if (isRandomized === false) {
+                    btnRandom.classList.add('on');
+                    isRandomized = true;
+                } else {
+                    btnRandom.classList.remove('on');
+                    isRandomized = false;
                 }
             },
 
@@ -162,24 +157,38 @@ var Player = (function (window, document) {
             },
 
             createPlayList = function () {
-                var listItem, musicName;
-                playListElement.innerHTML = "";
-                for (var i = 0, len = Player.playList.length; i < len; i++) {
-                    musicName = Player.playList[i].name.replace(".mp3", "");
+                var musicName,
+                    i,
+                    len = Player.playList.length,
+                    li,
+                    button,
+                    span;
 
-                    var li = document.createElement("li");
-                    var button = document.createElement("button");
-                    var span = document.createElement("span");
-                    li.setAttribute("class", "list-item");
+                playListElement.innerHTML = "";
+
+                for (i = 0; i < len; i += 1) {
+                    musicName = document.createTextNode(Player.playList[i].name.replace(".mp3", ""));
+
+                    li = document.createElement("li");
+                    button = document.createElement("button");
+                    span = document.createElement("span");
+
                     button.setAttribute("type", "button");
                     button.setAttribute("class", "btn player-btn small icon icon-play");
-                    span.setAttribute("id", "list-icon-"+i);
+                    
+                    (function (id) {
+                        button.addEventListener('click', function () { Player.playMusic(id) } , false);
+                    })(i);
+
+                    span.setAttribute("id", "list-icon-" + i);
                     span.setAttribute("class", "list-icon icon icon-headphones");
 
+                    li.setAttribute("class", "list-item");
                     li.appendChild(button);
-                    li.innerHTML += musicName;
+                    li.appendChild(musicName);
                     li.appendChild(span);
                     playListElement.appendChild(li);
+
                 };
             },
 
@@ -223,7 +232,7 @@ var Player = (function (window, document) {
             //player
             player.addEventListener("ended", playNext, false);
             player.addEventListener("timeupdate", timeLineUpdate, false);
-            player.addEventListener("timeupdate", function(){musicCountUpdate( Math.floor(this.currentTime) );} , false);
+            player.addEventListener("timeupdate", function(){ musicCountUpdate( Math.floor(this.currentTime) ); } , false);
 
             return {
                 playList: playList,
@@ -231,4 +240,4 @@ var Player = (function (window, document) {
                 createPlayList: createPlayList
             }
 
-})(window, document);
+})( window, document );

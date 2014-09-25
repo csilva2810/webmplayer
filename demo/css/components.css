@@ -246,7 +246,7 @@ input#volume {
 
 .play-list .list-item {
 	padding: 4px;
-	border-bottom: 1px solid #eee;
+	border-bottom: 1px solid #fafafa;
 	position: relative;
 }
 
@@ -266,6 +266,10 @@ input#volume {
 	position: absolute;
 	right: 8px;
 	top: 18px;
+}
+
+.play-list .btn {
+  margin-right: 16px;
 }
 
 .play-list .list-item:last-child {
@@ -298,7 +302,6 @@ input#volume {
 }
 
 .playing {
-	font-weight: bold;
 	color: #33cc9c;
 
 	-webkit-animation: blink 1.5s infinite;
