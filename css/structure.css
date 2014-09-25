@@ -55,10 +55,10 @@ header, section, footer, aside, nav, main, article, figure {
 .dark .container {
 	background: #3A3D41;
 
-	-webkit-box-shadow: 0 1px 3px 1px rgba(0,0,0, 0.5);
-	   -moz-box-shadow: 0 1px 3px 1px rgba(0,0,0, 0.5);
-		  -ms-box-shadow: 0 1px 3px 1px rgba(0,0,0, 0.5);
-		      box-shadow: 0 1px 3px 1px rgba(0,0,0, 0.5);
+	-webkit-box-shadow: 0 1px 1px 1px rgba(0,0,0, 0.6);
+	   -moz-box-shadow: 0 1px 1px 1px rgba(0,0,0, 0.6);
+		  -ms-box-shadow: 0 1px 1px 1px rgba(0,0,0, 0.6);
+		      box-shadow: 0 1px 1px 1px rgba(0,0,0, 0.6);
 }
 
 .header {
@@ -81,7 +81,6 @@ header, section, footer, aside, nav, main, article, figure {
 	margin: 4px 8px;
 	font-size: 1.5em;
 	color: #33cc9c;
-	font-weight: bold;
 }
 
 .blue .logo {
@@ -249,7 +248,6 @@ header, section, footer, aside, nav, main, article, figure {
 
 .loading-wrap {
 	text-align: center;
-	width: 10%;
 	height: 20px;
 	margin: 0 auto;
 }
