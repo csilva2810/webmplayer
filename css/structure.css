@@ -88,24 +88,17 @@ header, section, footer, aside, nav, main, article, figure {
 }
 
 .red .logo {
-	color: #f25050;
+	color: #f55;
 }
 
 .pink .logo {
-	color: #E24B85;
+	color: #Ffb5d1;
 }
 
 .user-preferences {
 	position: absolute;
 	right: 50px;
 	margin: 4px 8px;
-}
-
-.user-preferences:hover .wrap,
-.btn-user-prefences:hover .wrap,
-.btn-user-prefences:focus .wrap {
-	visibility: visible;
-	opacity: 1;
 }
 
 .user-preferences .wrap {
@@ -153,6 +146,14 @@ header, section, footer, aside, nav, main, article, figure {
 
 .dark .wrap::before {
 	border-bottom-color: #333;
+}
+
+.user-preferences:hover .wrap,
+.user-preferences:focus .wrap,
+.btn-user-prefences:hover ~ .wrap,
+.btn-user-prefences:focus ~ .wrap {
+	visibility: visible;
+	opacity: 1;
 }
 
 .theme,
