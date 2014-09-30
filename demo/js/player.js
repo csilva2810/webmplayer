@@ -180,8 +180,9 @@ var Player = (function (window, document) {
                         button.addEventListener('click', function () { Player.playMusic(id) } , false);
                     })(i);
 
-                    span.setAttribute("id", "list-icon-" + i);
-                    span.setAttribute("class", "list-icon icon icon-headphones");
+                    span.setAttribute("id", "list-icon-"+i);
+                    span.setAttribute("class", "sound-wave");
+                    span.innerHTML = "<span></span><span></span><span></span>";
 
                     li.setAttribute("class", "list-item");
                     li.appendChild(button);

@@ -27,15 +27,19 @@
         },
 
         setTheme = function (theme) {
-            htmlTag.className = document.querySelector("html").className.replace(/(dark|light)/g, "");
-            htmlTag.classList.add(theme);
+                        
+            theme = theme || "light";
+            htmlTag.className = htmlTag.className.replace(/dark|light/g, "");
+            htmlTag.className += " "+theme;
 
             setLocalStorage("theme", theme);
         },
 
         setColor = function (color) {
-            htmlTag.className = document.querySelector("html").className.replace(/(blue|red|green|pink)/g, "");
-            htmlTag.classList.add(color);
+
+            color = color || "green";
+            htmlTag.className = htmlTag.className.replace(/blue|red|green|pink/g, "");
+            htmlTag.className += " "+color;
 
             setLocalStorage("color", color);
         };
