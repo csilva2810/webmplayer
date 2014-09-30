@@ -229,11 +229,12 @@ input#volume { width: 100px; }
   0% {
     height: 4px;
     top: 0;
+    background: #66CCFF;
   }
   100% {
     height: 10px;
     top: -6px;
-    background: #ccc;
+    background: #CC99FF;
   }
 }
 
@@ -241,11 +242,12 @@ input#volume { width: 100px; }
   0% {
     height: 4px;
     top: 0;
+    background: #66CCFF;
   }
   100% {
     height: 10px;
     top: -6px;
-    background: #ccc;
+    background: #CC99FF;
   }
 }
 
@@ -257,14 +259,9 @@ input#volume { width: 100px; }
 
 .sound-wave span {
   position: absolute;
-  background: #33cc9c;
   height: 4px;
   width: 6px;
 }
-
-.blue .sound-wave span { background: #60d4d4; }
-.red  .sound-wave span { background: #f55; }
-.pink .sound-wave span { background: #Ffb5d1; }
 
 .sound-wave.playing span {
   -webkit-animation: sound 0.5s linear infinite alternate;
