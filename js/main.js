@@ -62,12 +62,12 @@
         var i,
             len = this.files.length;
 
-        Player.playList = [];
+        Player.clearPlayList();
         for (i = 0; i < len; i += 1) {
-            Player.playList.push(this.files[i]);
+            Player.setPlayList(this.files[i]);
         }
 
-        Player.playMusic(0);
+        Player.playMusic.apply(Player, [0]);
         Player.createPlayList();
 
     }, false);
