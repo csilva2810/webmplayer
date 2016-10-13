@@ -1,0 +1,28 @@
+{
+  "name": "webmplayer",
+  "version": "1.0.0",
+  "description": "Web Player built with html5",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/csilva2810/webmplayer.git"
+  },
+  "keywords": [
+    "player",
+    "audio",
+    "web",
+    "player"
+  ],
+  "author": "Carlos Silva",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/csilva2810/webmplayer/issues"
+  },
+  "homepage": "https://github.com/csilva2810/webmplayer#readme",
+  "dependencies": {
+    "normalize.css": "^5.0.0"
+  }
+}
