@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/csilva2810/webmplayer/issues"
   },
-  "homepage": "https://github.com/csilva2810/webmplayer#readme"
+  "homepage": "https://github.com/csilva2810/webmplayer#readme",
+  "devDependencies": {
+    "gulp-sass": "^2.3.2"
+  }
 }
