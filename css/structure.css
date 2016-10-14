@@ -3,8 +3,8 @@
 *:after {
     -webkit-box-sizing: border-box;
        -moz-box-sizing: border-box;
-            -ms-box-sizing: border-box;
-                    box-sizing: border-box;
+        -ms-box-sizing: border-box;
+            box-sizing: border-box;
 }
 
 html, 
@@ -19,7 +19,11 @@ body {
     background: -webkit-radial-gradient(circle, #fff, #EAEDF1);
     background:    -moz-radial-gradient(circle, #fff, #EAEDF1);
     background:     -ms-radial-gradient(circle, #fff, #EAEDF1);
-    background:               radial-gradient(circle, #fff, #EAEDF1);
+    background:         radial-gradient(circle, #fff, #EAEDF1);
+
+    background-image: url('https://source.unsplash.com/category/nature');
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .dark html, 
@@ -30,7 +34,7 @@ body {
     background: -webkit-radial-gradient(circle, #888, #5A5D61);
     background:    -moz-radial-gradient(circle, #888, #5A5D61);
     background:     -ms-radial-gradient(circle, #888, #5A5D61);
-    background:               radial-gradient(circle, #888, #5A5D61);
+    background:         radial-gradient(circle, #888, #5A5D61);
 }
 
 header, section, footer, aside, nav, main, article, figure { 

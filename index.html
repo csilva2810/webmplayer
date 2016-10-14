@@ -19,12 +19,14 @@
         <header class="header">
 
             <div class="logo">
-                <span class="icon icon-headphones"></span>
+                <i class="icon icon-headphones"></i>
                 WebMPlayer
             </div>
 
             <div class="user-preferences">
-                <button class="btn btn-header btn-user-preferences"> <span class="icon icon-cog"></span> </button>
+                <button class="btn btn-header btn-user-preferences">
+                    <i class="icon icon-cog"></i>
+                </button>
                 <div class="wrap">
                     <ul class="theme">
                         <li class="theme-item" id="theme-light">Light</li>
@@ -44,7 +46,9 @@
             <div class="upload-wrap">
                 <form name="form_upload">
                     <input type="file" id="file-element" accept="audio/mp3" multiple style="display:none;" />
-                    <button type="button" id="btn-upload" class="btn btn-header" title="Adicionar Músicas"><span class="icon icon-music"></span></button>
+                    <button type="button" id="btn-upload" class="btn btn-header" title="Adicionar Músicas">
+                        <i class="icon icon-music"></i>
+                    </button>
                 </form>
             </div>
 
@@ -59,20 +63,32 @@
             <audio id="player" preload="auto">Seu browser não suporta reprodução de áudio.</audio>
 
             <div class="controls-wrap">
-                <button type="button" class="btn player-btn icon icon-repeat" id="repeat"></button>
-                <button type="button" class="btn player-btn icon icon-chevron-left" id="prev"></button>
+                <button type="button" class="btn player-btn" id="repeat">
+                    <i class="icon icon-repeat"></i>
+                </button>
+                <button type="button" class="btn player-btn" id="prev">
+                    <i class="icon icon-chevron-left"></i>
+                </button>
                 <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
                     <div class="flipper">
                         <div class="front">
-                            <button type="button" class="btn player-btn icon icon-play large"  id="btn-play"></button>
+                            <button type="button" class="btn player-btn large" id="btn-play">
+                                <i class="icon icon-play"></i>
+                            </button>
                         </div>
                         <div class="back">
-                            <button type="button" class="btn player-btn icon icon-pause large" id="btn-pause"></button>
+                            <button type="button" class="btn player-btn large" id="btn-pause">
+                                <i class="icon icon-pause"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
-                <button type="button" class="btn player-btn icon icon-chevron-right" id="next"></button>
-                <button type="button" class="btn player-btn icon icon-random"        id="random"></button>
+                <button type="button" class="btn player-btn" id="next">
+                    <i class="icon icon-chevron-right"></i>
+                </button>
+                <button type="button" class="btn player-btn" id="random">
+                    <i class="icon icon-random"></i>
+                </button>
             </div>  
             
             <div class="music-info">
@@ -88,7 +104,9 @@
                 <label id="time">00:00</label>
 
                 <div class="volume-wrap">
-                    <button type="button" class="btn-volume btn player-btn small icon icon-volume-down"></button>
+                    <button type="button" class="btn-volume btn player-btn small">
+                        <i class="icon icon-volume-down"></i>
+                    </button>
                     <span class="volume-box">
                         <input type="range" class="range" min="0" max="10" id="volume" value="10">
                     </span>
