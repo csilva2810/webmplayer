@@ -1,0 +1,36 @@
+.play-list {
+  list-style: none;
+  width: 96%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.play-list .list-item {
+  padding: 4px;
+  border-bottom: 1px solid #fafafa;
+  position: relative;
+}
+
+.play-list .list-item:last-child { 
+	border-bottom: none; 
+}
+
+.play-list .list-item:hover { 
+	background: #fafafa; 
+}
+
+.play-list .list-icon { 
+	position: absolute; 
+}
+
+.play-list .btn { 
+	margin-right: 16px; 
+}
+
+.dark .play-list .list-item {
+  border-bottom: 1px solid #444;
+}
+
+.dark .play-list .list-item:hover { 
+	background: #4c5056; 
+}

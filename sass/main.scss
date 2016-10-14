@@ -1,0 +1,32 @@
+@charset "utf-8";
+
+/* 
+IMPORT ORDER
+	1 - abstracts/
+	2 - vendors/
+	3 - utils/
+	4 - base/
+	5 - layout/
+	6 - components/
+	7 - pages/
+	8 - themes/
+*/
+
+@import 'abstracts/variables.scss';
+
+@import 'vendors/normalize.scss';
+
+@import 'utils/animations.scss';
+
+@import
+	'base/reset.scss',
+	'base/base.scss';
+
+@import 
+	'components/icons.scss',
+	'components/buttons.scss',
+	'components/input-range.scss',
+	'components/list.scss',
+	'components/loading.scss',
+	'components/sound-waves.scss',
+	'components/volume.scss';
