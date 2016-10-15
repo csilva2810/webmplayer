@@ -1,4 +1,5 @@
 (function () {
+    
     "use strict";
     var btnUpload   = document.querySelector("#btn-upload"),
         fileElement = document.querySelector("#file-element"),
@@ -11,59 +12,58 @@
         htmlTag     = document.querySelector('html'),
         
         setLocalStorage = function (item, value) {
-            if (localStorage) {
+            if (window.hasOwnProperty('localStorage')) {
                 localStorage.setItem(item, value);
-            } else {
-                return "";
             }
         },
 
         getLocalStorage = function (item) {
-            if (localStorage.getItem(item)) {
+            if (window.hasOwnProperty('localStorage')) {
                 return localStorage.getItem(item);
             }
-
-            return "";
         },
 
         setTheme = function (theme) {
-                        
+            
             theme = theme || "light";
-            htmlTag.className = htmlTag.className.replace(/dark|light/g, "");
-            htmlTag.className += " "+theme;
-
+            document.body.classList.remove('dark', 'light');
+            document.body.classList.add(theme);
             setLocalStorage("theme", theme);
+            
         },
 
         setColor = function (color) {
 
             color = color || "green";
-            htmlTag.className = htmlTag.className.replace(/blue|red|green|pink/g, "");
-            htmlTag.className += " "+color;
-
+            document.body.classList.remove('blue', 'red', 'green', 'pink');
+            document.body.classList.add(color);
             setLocalStorage("color", color);
+
         };
 
-    if (localStorage) {
+    if (window.hasOwnProperty(localStorage)) {
         setTheme(getLocalStorage('theme'));
         setColor(getLocalStorage('color'));
     }
 
     btnUpload.addEventListener("click", function (e) {
+        
+        e.stopPropagation();
+        e.preventDefault();
+        
         if (fileElement) {
             fileElement.click();
         }
-
-        e.stopPropagation();
-        e.preventDefault();
+        
     }, false);
 
     fileElement.addEventListener("change", function () {
-        var i,
-            len = this.files.length;
 
         Player.clearPlayList();
-        for (i = 0; i < len; i += 1) {
+        this.files.forEach(function (file, index) {
+            Player.setPlayList(file);
+        });
+        for (var i = 0, len = this.files.length; i < len; i += 1) {
             Player.setPlayList(this.files[i]);
         }
 

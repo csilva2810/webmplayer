@@ -3,31 +3,17 @@ body {
     margin: 0;
     padding: 0;
     height: 100%;
-    font-family: "Segoe UI", "Calibri", sans-serif;
+    font-family: $font-stack;
     font-size: 100%;
-    color: #777;
-    background: #EAEDF1;
-    background: -webkit-radial-gradient(circle, #fff, #EAEDF1);
-    background:    -moz-radial-gradient(circle, #fff, #EAEDF1);
-    background:     -ms-radial-gradient(circle, #fff, #EAEDF1);
-    background:         radial-gradient(circle, #fff, #EAEDF1);
-
-    background-image: url('https://source.unsplash.com/category/nature');
+    color: $text-color;
+    background-color: $page-bg-color;
+    background-image: url('https://source.unsplash.com/category/nature/1920x1080');
     background-size: cover;
     background-repeat: no-repeat;
 }
 
 .dark html, 
 .dark body {
-    color: #aaa;
-
-    background: #5A5D61;
-    background: -webkit-radial-gradient(circle, #888, #5A5D61);
-    background:    -moz-radial-gradient(circle, #888, #5A5D61);
-    background:     -ms-radial-gradient(circle, #888, #5A5D61);
-    background:         radial-gradient(circle, #888, #5A5D61);
-}
-
-header, section, footer, aside, nav, main, article, figure { 
-    display: block; 
+    color: $dark-text-color;
+    background-color: $dark-page-bg-color;
 }

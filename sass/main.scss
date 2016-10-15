@@ -12,21 +12,34 @@ IMPORT ORDER
 	8 - themes/
 */
 
-@import 'abstracts/variables.scss';
-
-@import 'vendors/normalize.scss';
-
-@import 'utils/animations.scss';
-
-@import
-	'base/reset.scss',
-	'base/base.scss';
+@import 
+	'abstracts/variables.scss';
 
 @import 
-	'components/icons.scss',
+	'vendors/normalize.scss';
+
+@import 
+	'utils/animations.scss',
+	'utils/helpers.scss',
+	'utils/shadows.scss';
+
+@import
+	'base/typograph.scss',
+	'base/reset.scss',
+	'base/base.scss';
+	
+@import
+	'layouts/player.scss',
+	'layouts/user-settings.scss';
+
+@import 
 	'components/buttons.scss',
+	'components/card.scss',
+	'components/dropdown.scss',
+	'components/flip-card.scss',
+	'components/icons.scss',
 	'components/input-range.scss',
 	'components/list.scss',
 	'components/loading.scss',
 	'components/sound-waves.scss',
-	'components/volume.scss';
+	'components/table.scss';

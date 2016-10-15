@@ -1,123 +1,158 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Music Player</title>
-
-    <link type="text/css" rel="stylesheet" href="css/structure.css">
-    <link type="text/css" rel="stylesheet" href="css/components.css">
-    <link type="text/css" rel="stylesheet" href="css/icons.css">
-
-    <link rel="shortcut icon" href="img/icon.ico">
-    
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Music Player</title>
+  
+  <!-- google fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet">
+  <!--<link type="text/css" rel="stylesheet" href="css/structure.css">-->
+  <link type="text/css" rel="stylesheet" href="css/main.css">
+  
+  <link rel="shortcut icon" href="img/icon.ico">
 </head>
 <body>
 
-    <div class="container">
+  <div class="container">
 
-        <header class="header">
+    <div class="card">
 
-            <div class="logo">
-                <i class="icon icon-headphones"></i>
-                WebMPlayer
+      <header class="card-header clearfix">
+        
+        <div class="logo left half-width">
+          <i class="icon icon-headphones"></i>
+          WebMPlayer
+        </div>
+        
+        <div class="right half-width text-right">
+          
+          <div class="dropdown-wrapper inline-block">
+            <a href="#" class="btn btn-primary btn-header dropdown-toggle" data-dropdown="user-settings">
+              <i class="icon icon-cog"></i>
+            </a>
+            <div id="user-settings" class="dropdown-menu user-settings">
+              
+              <ul class="theme">
+                <li class="theme-item">
+                  <a class="theme-item-btn" id="theme-light" href="#">
+                    <small>Light</small>
+                  </a>
+                </li>
+                <li class="theme-item">
+                  <a class="theme-item-btn" id="theme-dark" href="#">
+                    <small>Dark</small>
+                  </a>
+                </li>
+              </ul>
+              <ul class="color">
+                <li class="color-item">
+                  <a href="#" id="btn-green" class="btn btn-color green"></a>
+                  <a href="#" id="btn-pink"  class="btn btn-color pink"></a>
+                  <a href="#" id="btn-red"   class="btn btn-color red"></a>
+                  <a href="#" id="btn-blue"  class="btn btn-color blue"></a>
+                </li>
+              </ul>
+              
+            </div><!-- dropdown-menu -->
+          </div><!-- dropdown-wrapper -->
+
+          <a href="#" id="btn-upload" class="btn btn-primary btn-header" title="Adicionar Músicas">
+            <i class="icon icon-music"></i>
+          </a>
+          <input type="file" id="file-element" accept="audio/mp3" multiple style="display:none;">
+
+        </div><!-- right -->
+        
+      </header><!--card-header -->
+      
+      <hr class="divider">
+      
+      <section class="card-content">
+        <div class="play-list-wrap">
+          <ul class="play-list" id="play-list"></ul>
+        </div>
+      </section><!-- card-content -->
+      
+      <hr class="divider">
+      
+      <footer class="card-footer">
+        
+        <audio id="player" preload="auto">Seu browser não suporta reprodução de áudio.</audio>
+
+        <div id="player-controls" class="text-center p-10">
+          <button type="button" class="btn player-btn" id="repeat">
+            <i class="icon icon-repeat"></i>
+          </button>
+          <button type="button" class="btn player-btn" id="prev">
+            <i class="icon icon-chevron-left"></i>
+          </button>
+          <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+            <div class="flipper">
+              <div class="front">
+                <button type="button" class="btn player-btn large" id="btn-play">
+                  <i class="icon icon-play"></i>
+                </button>
+              </div>
+              <div class="back">
+                <button type="button" class="btn player-btn large" id="btn-pause">
+                  <i class="icon icon-pause"></i>
+                </button>
+              </div>
             </div>
+          </div>
+          <button type="button" class="btn player-btn" id="next">
+            <i class="icon icon-chevron-right"></i>
+          </button>
+          <button type="button" class="btn player-btn" id="random">
+            <i class="icon icon-random"></i>
+          </button>
+        </div>
+          
+        <div class="text-center p-10">
+          <div id="loading-music" class="loading">Carregando...</div>
+          <div id="music-name"> -- </div>
+        </div>
 
-            <div class="user-preferences">
-                <button class="btn btn-header btn-user-preferences">
-                    <i class="icon icon-cog"></i>
-                </button>
-                <div class="wrap">
-                    <ul class="theme">
-                        <li class="theme-item" id="theme-light">Light</li>
-                        <li class="theme-item" id="theme-dark" >Dark </li>
-                    </ul>
-                    <ul class="color">
-                        <li class="color-item">
-                            <button id="btn-green" class="btn btn-color green"></button>
-                            <button id="btn-pink"  class="btn btn-color pink"></button>
-                            <button id="btn-red"   class="btn btn-color red"></button>
-                            <button id="btn-blue"  class="btn btn-color blue"></button>
-                        </li>
-                    </ul>
-                </div>  
-            </div>
-
-            <div class="upload-wrap">
-                <form name="form_upload">
-                    <input type="file" id="file-element" accept="audio/mp3" multiple style="display:none;" />
-                    <button type="button" id="btn-upload" class="btn btn-header" title="Adicionar Músicas">
-                        <i class="icon icon-music"></i>
-                    </button>
-                </form>
-            </div>
-
-        </header>
-
-        <section class="play-list-wrap">
-            <ul class="play-list" id="play-list"></ul>
-        </section>
-
-        <section class="player-wrap">
-
-            <audio id="player" preload="auto">Seu browser não suporta reprodução de áudio.</audio>
-
-            <div class="controls-wrap">
-                <button type="button" class="btn player-btn" id="repeat">
-                    <i class="icon icon-repeat"></i>
-                </button>
-                <button type="button" class="btn player-btn" id="prev">
-                    <i class="icon icon-chevron-left"></i>
-                </button>
-                <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
-                    <div class="flipper">
-                        <div class="front">
-                            <button type="button" class="btn player-btn large" id="btn-play">
-                                <i class="icon icon-play"></i>
-                            </button>
-                        </div>
-                        <div class="back">
-                            <button type="button" class="btn player-btn large" id="btn-pause">
-                                <i class="icon icon-pause"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <button type="button" class="btn player-btn" id="next">
-                    <i class="icon icon-chevron-right"></i>
-                </button>
-                <button type="button" class="btn player-btn" id="random">
-                    <i class="icon icon-random"></i>
-                </button>
-            </div>  
-            
-            <div class="music-info">
-                <div class="loading-wrap">
-                    <span id="loading-music" class="loading">Carregando...</span>
-                </div>
-                <label id="music-name"> -- </label>
-            </div>
-
-            <div class="timeline-wrap">
+        <div class="text-center p-10">
+          
+          <table class="table">
+            <tr>
+              <td class="text-right valign-middle">
                 <label id="time-count">00:00</label>
-                <input type="range" class="range opaque" min="0" max="100" id="timeline" value="0" step="any">
+              </td>
+              <td class="text-center valign-middle">
+                <input type="range" class="range" min="0" max="100" id="timeline" value="0" step="any"> 
+              </td>
+              <td class="text-left valign-middle">
                 <label id="time">00:00</label>
+              </td>
+            </tr>
+          </table>
+          
+          <div class="dropdown-wrapper inline-block">
 
-                <div class="volume-wrap">
-                    <button type="button" class="btn-volume btn player-btn small">
-                        <i class="icon icon-volume-down"></i>
-                    </button>
-                    <span class="volume-box">
-                        <input type="range" class="range" min="0" max="10" id="volume" value="10">
-                    </span>
-                </div>
-            </div>
+            <button type="button" class="btn-volume btn player-btn small dropdown-toggle">
+              <i class="icon icon-volume-down"></i>
+            </button>
+            <ul class="dropdown-menu dropdown-up">
+              <li class="item p-5">
+                <input type="range" class="range" min="0" max="10" id="volume" value="10">
+              </li>
+            </ul>
+            
+          </div>
 
-        </section>
+        </div>
 
-    </div>
+      </footer><!-- card-footer -->
 
-    <script type="text/javascript" src="js/player.js"></script>
-    <script type="text/javascript" src="js/main.js"></script>
+    </div><!-- card -->
+
+  </div><!-- container -->
+
+  <script type="text/javascript" src="js/player.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
+  
 </body>
 </html>

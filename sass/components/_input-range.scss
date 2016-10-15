@@ -1,56 +1,80 @@
 .range {
+  width: 100%;
+  height: 6px;
+  border: none;
+  outline: none; /* no focus outline */
+  border-radius: 100px;
+  background-color: #e5e5e5;
+  box-shadow: inset 0 1px 1px 0 rgba(25,25,25,0.1);
+  transition: .2s;
+  
   -webkit-appearance: none;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-  height: 20px;
-  padding: 1px 2px;
-  border: 1px solid #ddd;
-  border-radius: 14px;
-  background-color: white;
-  outline: none; /* no focus outline */
-
-  -webkit-box-shadow: inset 0 1px 1px 0 rgba(25,25,25,0.1);
-     -moz-box-shadow: inset 0 1px 1px 0 rgba(25,25,25,0.1);
-      -ms-box-shadow: inset 0 1px 1px 0 rgba(25,25,25,0.1);
-          box-shadow: inset 0 1px 1px 0 rgba(25,25,25,0.1);
-}
-
-.dark .range {
-  background-color: #333;
-  border: 1px solid #444;
-
-  -webkit-box-shadow: inset 0 1px 2px 0 rgba(25,25,25,0.25);
-     -moz-box-shadow: inset 0 1px 2px 0 rgba(25,25,25,0.25);
-      -ms-box-shadow: inset 0 1px 2px 0 rgba(25,25,25,0.25);
-          box-shadow: inset 0 1px 2px 0 rgba(25,25,25,0.25);
-}
-
-.range::-moz-range-track {
-  border: none;
-  background-color: transparent;
-}
-
-.range::-ms-track {
-  border: none;
-  color: transparent; /* don't drawn vertical reference line */
-  background-color: transparent;
-}
-
-.range::-ms-fill-lower,
-.range::-ms-fill-upper {
-  background-color: transparent;
-}
-
-.range::-ms-tooltip {
-  display: none;
-}
-
-.range::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  width: 18px;
-  height: 18px;
-  border: none;
-  border-radius: 50%;
-  background-color: #33cc9c;
+  
+  &:hover {
+    background-color: #d5d5d5;
+  }
+  
+  &::-moz-range-track {
+    border: none;
+    background-color: transparent;
+  }
+  
+  &::-ms-track {
+    border: none;
+    color: transparent; /* don't drawn vertical reference line */
+    background-color: transparent;
+  }
+  
+  &::-ms-fill-lower,
+  &::-ms-fill-upper {
+    background-color: transparent;
+  }
+  
+  &::-ms-tooltip {
+    display: none;
+  }
+  
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    border: none;
+    border-radius: 50%;
+    background-color: #33cc9c;
+  }
+  
+  &::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    border: none;
+    border-radius: 50%;
+    background-color: #33cc9c;
+  }
+  
+  &:active::-webkit-slider-thumb {
+    -webkit-box-shadow: inset 1px 2px 2px 0 rgba(0,0,0,0.25);
+            box-shadow: inset 1px 2px 2px 0 rgba(0,0,0,0.25);
+  }
+  
+  &:active::-moz-range-thumb {
+    -moz-box-shadow: inset 1px 2px 2px 0 rgba(0,0,0,0.25);
+         box-shadow: inset 1px 2px 2px 0 rgba(0,0,0,0.25);
+  }
+  
+  &::-ms-thumb {
+    width: 18px;
+    height: 18px;
+    border: none;
+    border-radius: 50%;
+    background-color: #33cc9c;
+  }
+  
+  &:active::-ms-thumb {
+    -ms-box-shadow: inset 1px 2px 2px 0 rgba(0,0,0,0.25);
+        box-shadow: inset 1px 2px 2px 0 rgba(0,0,0,0.25);
+  }
+  
 }
 
 .blue .range::-webkit-slider-thumb { background-color: #60d4d4; }
@@ -59,37 +83,11 @@
 
 .pink .range::-webkit-slider-thumb { background-color: #Ffb5d1; }
 
-.range:active::-webkit-slider-thumb {
-  -webkit-box-shadow: inset 1px 2px 2px 0 rgba(0,0,0,0.25);
-                box-shadow: inset 1px 2px 2px 0 rgba(0,0,0,0.25);
-}
-
-.range::-moz-range-thumb {
-  width: 18px;
-  height: 18px;
-  border: none;
-  border-radius: 50%;
-  background-color: #33cc9c;
-}
-
 .blue .range::-moz-range-thumb { background-color: #60d4d4; }
 
 .red .range::-moz-range-thumb { background-color: #f55; }
 
 .pink .range::-moz-range-thumb { background-color: #Ffb5d1; }
-
-.range:active::-moz-range-thumb {
-  -moz-box-shadow: inset 1px 2px 2px 0 rgba(0,0,0,0.25);
-       box-shadow: inset 1px 2px 2px 0 rgba(0,0,0,0.25);
-}
-
-.range::-ms-thumb {
-  width: 18px;
-  height: 18px;
-  border: none;
-  border-radius: 50%;
-  background-color: #33cc9c;
-}
 
 .blue .range::-ms-thumb { background-color: #60d4d4; }
 
@@ -97,13 +95,11 @@
 
 .pink .range::-ms-thumb { background-color: #Ffb5d1; }
 
-.range:active::-ms-thumb {
-  -ms-box-shadow: inset 1px 2px 2px 0 rgba(0,0,0,0.25);
-      box-shadow: inset 1px 2px 2px 0 rgba(0,0,0,0.25);
-}
+.dark .range {
+  background-color: #333;
 
-input#timeline {
-  width: 75%;
-  vertical-align: middle;
-  cursor: auto;
+  -webkit-box-shadow: inset 0 1px 2px 0 rgba(25,25,25,0.25);
+     -moz-box-shadow: inset 0 1px 2px 0 rgba(25,25,25,0.25);
+      -ms-box-shadow: inset 0 1px 2px 0 rgba(25,25,25,0.25);
+          box-shadow: inset 0 1px 2px 0 rgba(25,25,25,0.25);
 }

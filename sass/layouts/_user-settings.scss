@@ -1,0 +1,47 @@
+.dropdown-menu.user-settings {
+  width: 200px;
+}
+
+.theme,
+.color {
+  display: block;
+  width: 50%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.theme {
+
+  float: left;
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+   
+  .theme-item-btn {
+    
+    display: block;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    transition: .3s;
+    
+    &:hover {
+      background: rgba(0, 0, 0, 0.1);
+    }
+      
+  }
+  
+}
+
+.color {
+  
+  float: right;
+  
+  & > .color-item {
+    margin: 0 10px;
+  }
+  
+}

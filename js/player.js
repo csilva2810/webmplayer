@@ -217,7 +217,7 @@ var Player = (function (window, document) {
             };
         };
 
-        //botões
+        //botï¿½es
         btnPlay.addEventListener("click", function () { Player.play(Player.currentTrack) }, false);
         btnPause.addEventListener("click", Player.pause, false);
         btnPrev.addEventListener("click", Player.playPrev, false);
@@ -240,7 +240,9 @@ var Player = (function (window, document) {
         //player
         audio.addEventListener("ended", Player.playNext, false);
         audio.addEventListener("timeupdate", Player.timeLineUpdate, false);
-        audio.addEventListener("timeupdate", function(){ Player.musicCountUpdate( Math.floor(this.currentTime) ); } , false);
+        audio.addEventListener("timeupdate", function() { 
+            Player.musicCountUpdate( Math.floor(this.currentTime) );
+        }, false);
 
         return {
             setPlayList: Player.setPlayList,

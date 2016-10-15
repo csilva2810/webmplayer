@@ -1,0 +1,50 @@
+.card {
+  
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 2px;
+  background-color: #fafafa;
+  transition: .2s;
+  will-change: box-shadow;
+  
+  @extend .shadow-2;
+  
+  &:hover {
+    @extend .shadow-4;
+  }
+  
+  & > .divider {
+    @extend .no-margin;
+    display: block;
+    height: 0;
+    border: none;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #fff;
+  }
+
+  & > .card-header {
+    display: block;
+    padding: 5px 10px;
+  }
+  
+  & > .card-content {
+    
+  }
+  
+  & > .card-footer {
+    
+  }
+  
+}
+
+.dark {
+  .card {
+    background: #3A3D41;
+    
+    & > .card-header {
+      background: #3A3D41;
+      border-bottom: 1px solid #444;
+    }
+  }
+}

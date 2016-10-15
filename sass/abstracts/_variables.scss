@@ -1,0 +1,28 @@
+$page-bg-color: #EAEDF1;
+$text-color: #757575;
+
+$dark-page-bg-color: #5A5D61;
+$dark-text-color: #eceff1;
+
+$btn-default-color: #eceff1;
+$btn-default-color-darken: darken($btn-default-color, 5%);
+
+$green: #33cc9c;
+$green-lighten: lighten($green, 5%);
+$green-darken: darken($green, 5%);
+
+$blue: #60d4d4;
+$blue-lighten: lighten($blue, 5%);
+$blue-darken: darken($blue, 5%);
+
+$red: #ff5555;
+$red-lighten: lighten($red, 5%);
+$red-darken: darken($red, 5%);
+
+$pink: #Ffb5d1;
+$pink-lighten: lighten($pink, 5%);
+$pink-darken: darken($pink, 5%);
+
+$primary-color: $green;
+$primary-color-lighten: lighten($primary-color, 5%);
+$primary-color-darken: darken($primary-color, 5%);
