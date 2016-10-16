@@ -1,28 +1,81 @@
-$page-bg-color: #EAEDF1;
-$text-color: #757575;
+$page-bg-color: #EAEDF1 !default;
+$text-color: #757575 !default;
+$border-color: #eeeeee !default;
+$el-bg-color: #fafafa !default;
+$el-bg-color-lighten: lighten($el-bg-color, 5%) !default;
+$el-bg-color-darken: darken($el-bg-color, 5%) !default;
 
-$dark-page-bg-color: #5A5D61;
-$dark-text-color: #eceff1;
+$dark-page-bg-color: #5A5D61 !default;
+$dark-text-color: #eceff1 !default;
+$dark-border-color: #444444 !default;
+$dark-el-bg-color: #3A3D41 !default;
+$dark-el-bg-color-lighten: lighten($dark-el-bg-color, 5%) !default;
+$dark-el-bg-color-darken: darken($dark-el-bg-color, 5%) !default;
 
-$btn-default-color: #eceff1;
-$btn-default-color-darken: darken($btn-default-color, 5%);
+$btn-default-color: #eceff1 !default;
+$btn-default-color-darken: darken($btn-default-color, 5%) !default;
 
-$green: #33cc9c;
-$green-lighten: lighten($green, 5%);
-$green-darken: darken($green, 5%);
+$green: #33cc9c !default;
+$green-lighten: lighten($green, 5%) !default;
+$green-darken: darken($green, 5%) !default;
 
-$blue: #60d4d4;
-$blue-lighten: lighten($blue, 5%);
-$blue-darken: darken($blue, 5%);
+$blue: #4fc3f7 !default;
+$blue-lighten: lighten($blue, 5%) !default;
+$blue-darken: darken($blue, 5%) !default;
 
-$red: #ff5555;
-$red-lighten: lighten($red, 5%);
-$red-darken: darken($red, 5%);
+$red: #ff5555 !default;
+$red-lighten: lighten($red, 5%) !default;
+$red-darken: darken($red, 5%) !default;
 
-$pink: #Ffb5d1;
-$pink-lighten: lighten($pink, 5%);
-$pink-darken: darken($pink, 5%);
+$pink: #f06292 !default;
+$pink-lighten: lighten($pink, 5%) !default;
+$pink-darken: darken($pink, 5%) !default;
 
-$primary-color: $green;
-$primary-color-lighten: lighten($primary-color, 5%);
-$primary-color-darken: darken($primary-color, 5%);
+$primary-color: $green !default;
+$primary-color-lighten: lighten($primary-color, 5%) !default;
+$primary-color-darken: darken($primary-color, 5%) !default;
+
+$mono-font-stack: ('Consolas', 'Courier New', 'Courier', 'Lucida Sans Typewriter', 'Lucida Typewriter', 'monaco', monospace);
+
+$themes: (
+	'light': (
+		'bg-color': $page-bg-color,
+		'text-color': $text-color,
+		'border-color': $border-color,
+		'el-bg-color': $el-bg-color,
+		'el-bg-color-lighten': $el-bg-color-lighten,
+		'el-bg-color-darken': $el-bg-color-darken
+	),
+	'dark': (
+		'bg-color': $dark-page-bg-color,
+		'text-color': $dark-text-color,
+		'border-color': $dark-border-color,
+		'el-bg-color': $dark-el-bg-color,
+		'el-bg-color-lighten': $dark-el-bg-color-lighten,
+		'el-bg-color-darken': $dark-el-bg-color-darken
+	),
+  'green': (
+    'primary': $green,
+    'lighten': $green-lighten,
+    'darken': $green-darken,
+    'glow': 0 0 5px $green
+  ),
+  'blue': (
+    'primary': $blue,
+    'lighten': $blue-lighten,
+    'darken': $blue-darken,
+    'glow': 0 0 5px $blue
+  ),
+  'red': (
+    'primary': $red,
+    'lighten': $red-lighten,
+    'darken': $red-darken,
+    'glow': 0 0 5px $red
+  ),
+  'pink': (
+    'primary': $pink,
+    'lighten': $pink-lighten,
+    'darken': $pink-darken,
+    'glow': 0 0 5px $pink
+  )
+) !default;

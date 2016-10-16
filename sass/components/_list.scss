@@ -1,36 +1,30 @@
 .play-list {
   list-style: none;
-  width: 96%;
+  width: 100%;
   margin: 0 auto;
   padding: 0;
-}
 
-.play-list .list-item {
-  padding: 4px;
-  border-bottom: 1px solid #fafafa;
-  position: relative;
-}
+  & > .list-item {
+    padding: 7px 10px;
+    position: relative;
+    transition: .2s;
+    font-size: 0.9em;
 
-.play-list .list-item:last-child { 
-	border-bottom: none; 
-}
+    &:hover { 
+      background-color: rgba(0, 0, 0, 0.05); 
+    }
 
-.play-list .list-item:hover { 
-	background: #fafafa; 
-}
+    &.is-active {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
 
-.play-list .list-icon { 
-	position: absolute; 
-}
+    & > .list-icon {
+      position: absolute; 
+    }
 
-.play-list .btn { 
-	margin-right: 16px; 
-}
-
-.dark .play-list .list-item {
-  border-bottom: 1px solid #444;
-}
-
-.dark .play-list .list-item:hover { 
-	background: #4c5056; 
+    & > .btn { 
+      margin-right: 16px;
+      margin-top: -2px; 
+    }
+  }
 }

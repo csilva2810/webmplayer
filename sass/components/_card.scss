@@ -1,10 +1,12 @@
 .card {
+
+  @include background-color('el-bg-color');
   
   display: block;
   width: 100%;
   margin: 0 auto;
-  border-radius: 2px;
-  background-color: #fafafa;
+  border-radius: 3px;
+  
   transition: .2s;
   will-change: box-shadow;
   
@@ -17,34 +19,29 @@
   & > .divider {
     @extend .no-margin;
     display: block;
-    height: 0;
+    height: 1px;
     border: none;
-    border-top: 1px solid #eee;
-    border-bottom: 1px solid #fff;
+    background-color: rgba(0, 0, 0, 0.04);
+    border-bottom: 1px solid rgb(255, 255, 255);
   }
 
   & > .card-header {
     display: block;
     padding: 5px 10px;
+    border-radius: 3px 3px 0 0;
   }
   
-  & > .card-content {
-    
-  }
+  & > .card-content {}
   
-  & > .card-footer {
-    
-  }
+  & > .card-footer {}
   
 }
 
 .dark {
   .card {
-    background: #3A3D41;
-    
-    & > .card-header {
-      background: #3A3D41;
-      border-bottom: 1px solid #444;
+    & > .divider {
+      background-color: rgba(0, 0, 0, 0.3);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
     }
   }
 }

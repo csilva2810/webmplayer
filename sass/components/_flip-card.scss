@@ -2,11 +2,9 @@
   perspective: 1000;
 }
 
-.flip-container.hover .flipper {
-  transform: rotateY(180deg);
-}
-
-.flip-container, .front, .back {
+.flip-container, 
+.front, 
+.back {
   display: inline-block;
   width: 80px;
   height: 75px;
@@ -16,18 +14,23 @@
 }
 
 .flipper {
+  position: relative;
   transition: 0.6s;
   transform-style: preserve-3d;
-
-  position: relative;
 }
 
-.front, .back {
-  backface-visibility: hidden;
+.flip-container.is-flipped .flipper {
+  transform: rotateY(180deg);
+}
+
+.front, 
+.back {
   position: absolute;
   top: 0;
   left: 0;
+  backface-visibility: hidden;
 }
+
 .front {
   z-index: 2;
   transform: rotateY(0deg);

@@ -13,13 +13,15 @@ IMPORT ORDER
 */
 
 @import 
-	'abstracts/variables.scss';
+	'abstracts/variables.scss',
+	'abstracts/mixins.scss';
 
 @import 
 	'vendors/normalize.scss';
 
 @import 
 	'utils/animations.scss',
+	'utils/colors.scss',
 	'utils/helpers.scss',
 	'utils/shadows.scss';
 

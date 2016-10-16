@@ -41,7 +41,7 @@
 
         };
 
-    if (window.hasOwnProperty(localStorage)) {
+    if (window.hasOwnProperty('localStorage')) {
         setTheme(getLocalStorage('theme'));
         setColor(getLocalStorage('color'));
     }
@@ -60,9 +60,10 @@
     fileElement.addEventListener("change", function () {
 
         Player.clearPlayList();
-        this.files.forEach(function (file, index) {
-            Player.setPlayList(file);
-        });
+        // this.files.forEach(function (file, index) {
+        //     Player.setPlayList(file);
+        // });
+        
         for (var i = 0, len = this.files.length; i < len; i += 1) {
             Player.setPlayList(this.files[i]);
         }
