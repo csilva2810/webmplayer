@@ -1,19 +1,29 @@
-.bg-green {
-	background-color: $green !important;
-}
-
-.bg-blue {
-	background-color: $blue !important;
-}
-
-.bg-red {
-	background-color: $red !important;
-}
-
-.bg-pink {
-	background-color: $pink !important;
-}
-
-.bg-purple {
-	background-color: $purple !important;
+/*
+Generating classes to apply colors to elements
+E.G: .bg-blue, .text-blue
+*/
+@each $color, $c in $colors {
+	@debug $color + " - " + $c;
+	
+	.bg-#{$color} {
+		background-color: map-get($c, 'primary') !important;
+	}
+	.text-#{$color} {
+		color: map-get($c, 'primary') !important;
+	}
+	
+	.bg-#{$color}-lighten {
+		background-color: map-get($c, 'lighten') !important;
+	}
+	.text-#{$color}-lighten {
+		color: map-get($c, 'lighten') !important;
+	}
+	
+	.bg-#{$color}-darken {
+		background-color: map-get($c, 'darken') !important;
+	}
+	.text-#{$color}-darken {
+		color: map-get($c, 'darken') !important;
+	}
+	
 }

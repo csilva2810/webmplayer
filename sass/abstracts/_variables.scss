@@ -26,7 +26,7 @@ $btn-default-color-darken: darken($btn-default-color, 5%) !default;
 /*
  * COLORS FOR USE IN THEMES
  */
-$green: #33cc9c !default;
+$green: #66bb6a !default;
 $green-lighten: lighten($green, 5%) !default;
 $green-darken: darken($green, 5%) !default;
 
@@ -46,7 +46,23 @@ $purple: #ba68c8 !default;
 $purple-lighten: lighten($purple, 5%) !default;
 $purple-darken: darken($purple, 5%) !default;
 
-$primary-color: $green !default;
+$cyan: #4dd0e1 !default;
+$cyan-lighten: lighten($cyan, 5%) !default;
+$cyan-darken: darken($cyan, 5%) !default;
+
+$teal: #00bfa5 !default;
+$teal-lighten: lighten($teal, 5%) !default;
+$teal-darken: darken($teal, 5%) !default;
+
+$yellow: #fbc02d !default;
+$yellow-lighten: lighten($yellow, 5%) !default;
+$yellow-darken: darken($yellow, 5%) !default;
+
+$orange: #ff7043 !default;
+$orange-lighten: lighten($orange, 5%) !default;
+$orange-darken: darken($orange, 5%) !default;
+
+$primary-color: $teal !default;
 $primary-color-lighten: lighten($primary-color, 5%) !default;
 $primary-color-darken: darken($primary-color, 5%) !default;
 
@@ -66,7 +82,10 @@ $themes: (
 		'el-bg-color': $dark-el-bg-color,
 		'el-bg-color-lighten': $dark-el-bg-color-lighten,
 		'el-bg-color-darken': $dark-el-bg-color-darken
-	),
+	)
+) !default;
+
+$colors: (
   'green': (
     'primary': $green,
     'lighten': $green-lighten,
@@ -96,5 +115,29 @@ $themes: (
     'lighten': $purple-lighten,
     'darken': $purple-darken,
     'glow': 0 0 5px $purple
+  ),
+  'cyan': (
+    'primary': $cyan,
+    'lighten': $cyan-lighten,
+    'darken': $cyan-darken,
+    'glow': 0 0 5px $cyan
+  ),
+  'teal': (
+    'primary': $teal,
+    'lighten': $teal-lighten,
+    'darken': $teal-darken,
+    'glow': 0 0 5px $teal
+  ),
+  'yellow': (
+    'primary': $yellow,
+    'lighten': $yellow-lighten,
+    'darken': $yellow-darken,
+    'glow': 0 0 5px $yellow
+  ),
+  'orange': (
+    'primary': $orange,
+    'lighten': $orange-lighten,
+    'darken': $orange-darken,
+    'glow': 0 0 5px $orange
   )
 ) !default;

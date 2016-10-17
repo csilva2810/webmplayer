@@ -32,7 +32,7 @@
         setColor = function (color) {
 
             color = color || "green";
-            document.body.classList.remove('blue', 'red', 'green', 'pink', 'purple');
+            document.body.className = document.body.className.replace(/(blue|red|green|pink|purple|cyan|teal|yellow|orange)/g, '');
             document.body.classList.add(color);
             setLocalStorage("color", color);
 

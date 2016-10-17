@@ -15,15 +15,6 @@
   &:hover {
     @extend .shadow-4;
   }
-  
-  & > .divider {
-    @extend .no-margin;
-    display: block;
-    height: 1px;
-    border: none;
-    background-color: rgba(0, 0, 0, 0.04);
-    border-bottom: 1px solid rgb(255, 255, 255);
-  }
 
   & > .card-header {
     display: block;
@@ -42,13 +33,4 @@
   
   & > .card-footer {}
   
-}
-
-.dark {
-  .card {
-    & > .divider {
-      background-color: rgba(0, 0, 0, 0.3);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-    }
-  }
 }
