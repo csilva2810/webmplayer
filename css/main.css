@@ -9,6 +9,15 @@ IMPORT ORDER
 	7 - pages/
 	8 - themes/
 */
+/*
+ * TYPOGRAPH
+ */
+/**
+ * COLORS FOR PAGES AND ELEMENTS 
+ */
+/*
+ * COLORS FOR USE IN THEMES
+ */
 /*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
 /**
  * 1. Change the default font family in all browsers (opinionated).
@@ -441,6 +450,9 @@ template {
 .bg-pink {
   background-color: #f06292 !important; }
 
+.bg-purple {
+  background-color: #ba68c8 !important; }
+
 .right {
   float: right !important; }
 
@@ -869,6 +881,8 @@ body.dark {
     color: #ff5555; }
   .pink .logo {
     color: #f06292; }
+  .purple .logo {
+    color: #ba68c8; }
 
 .music-name {
   display: block;
@@ -955,6 +969,8 @@ body.dark {
       background-color: #ff5555; }
     .pink .btn.btn-primary {
       background-color: #f06292; }
+    .purple .btn.btn-primary {
+      background-color: #ba68c8; }
     .green .btn.btn-primary:hover, .green .btn.btn-primary:focus {
       background-color: #47d1a6; }
     .blue .btn.btn-primary:hover, .blue .btn.btn-primary:focus {
@@ -963,6 +979,8 @@ body.dark {
       background-color: #ff6f6f; }
     .pink .btn.btn-primary:hover, .pink .btn.btn-primary:focus {
       background-color: #f279a2; }
+    .purple .btn.btn-primary:hover, .purple .btn.btn-primary:focus {
+      background-color: #c37bcf; }
   .btn.btn-circle {
     width: 50px;
     height: 50px;
@@ -985,6 +1003,8 @@ body.dark {
       background-color: #ff5555; }
     .pink .btn.btn-circle:hover {
       background-color: #f06292; }
+    .purple .btn.btn-circle:hover {
+      background-color: #ba68c8; }
   .green .btn.is-on {
     box-shadow: 0 0 5px #33cc9c; }
   .blue .btn.is-on {
@@ -993,6 +1013,8 @@ body.dark {
     box-shadow: 0 0 5px #ff5555; }
   .pink .btn.is-on {
     box-shadow: 0 0 5px #f06292; }
+  .purple .btn.is-on {
+    box-shadow: 0 0 5px #ba68c8; }
   .green .btn.is-on {
     color: #33cc9c; }
   .blue .btn.is-on {
@@ -1001,11 +1023,15 @@ body.dark {
     color: #ff5555; }
   .pink .btn.is-on {
     color: #f06292; }
+  .purple .btn.is-on {
+    color: #ba68c8; }
   .btn.is-on:hover {
     color: white; }
   .btn.btn-color {
-    width: 26px;
-    height: 26px;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin: 3px;
     box-shadow: none; }
     .btn.btn-color:hover, .btn.btn-color:focus {
       box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1); }
@@ -1031,6 +1057,11 @@ body.dark {
     display: block;
     padding: 5px 10px;
     border-radius: 3px 3px 0 0; }
+    .card > .card-header .btn-header {
+      padding: 0;
+      width: 32px;
+      height: 32px;
+      line-height: 32px; }
 
 .dark .card > .divider {
   background-color: rgba(0, 0, 0, 0.3);
@@ -1064,8 +1095,7 @@ body.dark {
     color: #757575; }
   .dark .dropdown-menu {
     color: #eceff1; }
-  .dropdown-toggle:hover ~ .dropdown-menu,
-  .dropdown-toggle:focus ~ .dropdown-menu, .dropdown-menu.is-active {
+  .dropdown-menu.is-active {
     opacity: 1;
     visibility: visible;
     transform: translateY(0); }
@@ -1226,6 +1256,8 @@ body.dark {
       background-color: #ff5555; }
     .pink .range::-webkit-slider-thumb {
       background-color: #f06292; }
+    .purple .range::-webkit-slider-thumb {
+      background-color: #ba68c8; }
   .range:active::-webkit-slider-thumb {
     transform: scale(1.2);
     box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1); }
@@ -1244,6 +1276,8 @@ body.dark {
       background-color: #ff5555; }
     .pink .range::-moz-range-thumb {
       background-color: #f06292; }
+    .purple .range::-moz-range-thumb {
+      background-color: #ba68c8; }
   .range:active::-moz-range-thumb {
     transform: scale(1.2); }
   .range::-ms-thumb {
@@ -1261,6 +1295,8 @@ body.dark {
       background-color: #ff5555; }
     .pink .range::-ms-thumb {
       background-color: #f06292; }
+    .purple .range::-ms-thumb {
+      background-color: #ba68c8; }
   .range:active::-ms-thumb {
     transform: scale(1.2); }
 

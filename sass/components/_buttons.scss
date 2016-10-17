@@ -72,8 +72,10 @@
   }
 
   &.btn-color {
-    width: 26px;
-    height: 26px;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin: 3px;
     box-shadow: none;
 
     &:hover,

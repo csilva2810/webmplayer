@@ -32,34 +32,35 @@
         <div class="left one-third-width text-right">
           
           <div class="dropdown-wrapper inline-block">
-            <a href="#" class="btn btn-primary m-r-5 dropdown-toggle" data-dropdown="user-settings">
+            <a href="#" class="btn btn-primary btn-header m-r-5 dropdown-toggle" data-dropdown="user-settings">
               <i class="icon icon-cog"></i>
             </a>
             <div id="user-settings" class="dropdown-menu user-settings">
                 <ul class="theme">
                     <li class="theme-item">
-                        <a class="theme-item-btn" id="theme-light" href="#">
-                            <small>Light</small>
+                        <a class="theme-item-btn" id="theme-light" href="#" data-theme-scheme="light">
+                          <small>Light</small>
                         </a>
                     </li>
                     <li class="theme-item">
-                        <a class="theme-item-btn" id="theme-dark" href="#">
-                            <small>Dark</small>
+                        <a class="theme-item-btn" id="theme-dark" href="#" data-theme-scheme="dark">
+                          <small>Dark</small>
                         </a>
                     </li>
                 </ul>
                 <ul class="color">
                     <li class="color-item p-5 text-center">
-                        <a href="#" id="btn-green" class="m-5 btn btn-circle btn-color bg-green"></a>
-                        <a href="#" id="btn-red"   class="m-5 btn btn-circle btn-color bg-red"></a>
-                        <a href="#" id="btn-pink"  class="m-5 btn btn-circle btn-color bg-pink"></a>
-                        <a href="#" id="btn-blue"  class="m-5 btn btn-circle btn-color bg-blue"></a>
+                      <a href="#" id="btn-green"  class="btn btn-circle btn-color bg-green"  data-theme-color="green" ></a>
+                      <a href="#" id="btn-red"    class="btn btn-circle btn-color bg-red"    data-theme-color="red"   ></a>
+                      <a href="#" id="btn-pink"   class="btn btn-circle btn-color bg-pink"   data-theme-color="pink"  ></a>
+                      <a href="#" id="btn-blue"   class="btn btn-circle btn-color bg-blue"   data-theme-color="blue"  ></a>
+                      <a href="#" id="btn-purple" class="btn btn-circle btn-color bg-purple" data-theme-color="purple"></a>
                     </li>
                 </ul> 
             </div><!-- dropdown-menu -->
           </div><!-- dropdown-wrapper -->
 
-          <a href="#" id="btn-upload" class="btn btn-primary" title="Adicionar Músicas">
+          <a href="#" id="btn-upload" class="btn btn-primary btn-header" title="Adicionar Músicas">
             <i class="icon icon-music"></i>
           </a>
           <input type="file" id="file-element" accept="audio/mp3" multiple style="display:none;">
@@ -132,10 +133,10 @@
           </table>
 
           <div class="dropdown-wrapper inline-block right">
-            <button type="button" class="btn-volume btn btn-circle btn-small dropdown-toggle">
+            <button type="button" class="btn-volume btn btn-circle btn-small dropdown-toggle" data-dropdown="volume-dropdown">
               <i class="icon icon-volume-down"></i>
             </button>
-            <ul class="dropdown-menu">
+            <ul class="dropdown-menu" id="volume-dropdown">
               <li class="item p-5">
                 <input type="range" class="range" min="0" max="10" id="volume" value="10">
               </li>
@@ -152,6 +153,7 @@
 
   <script type="text/javascript" src="js/player.js"></script>
   <script type="text/javascript" src="js/main.js"></script>
+  <script type="text/javascript" src="js/components/dropdown.js"></script>
   
 </body>
 </html>

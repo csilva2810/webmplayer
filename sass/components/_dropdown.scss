@@ -35,8 +35,6 @@
     @extend .shadow-3;
   }
   
-  .dropdown-toggle:hover ~ &,
-  .dropdown-toggle:focus ~ &,
   &.is-active {
     opacity: 1;
     visibility: visible;

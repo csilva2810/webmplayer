@@ -29,6 +29,13 @@
     display: block;
     padding: 5px 10px;
     border-radius: 3px 3px 0 0;
+
+    .btn-header {
+      padding: 0;
+      width: 32px;
+      height: 32px;
+      line-height: 32px;
+    }
   }
   
   & > .card-content {}

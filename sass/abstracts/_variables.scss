@@ -1,3 +1,11 @@
+/*
+ * TYPOGRAPH
+ */
+$mono-font-stack: ('Consolas', 'Courier New', 'Courier', 'Lucida Sans Typewriter', 'Lucida Typewriter', 'monaco', monospace);
+
+/**
+ * COLORS FOR PAGES AND ELEMENTS 
+ */
 $page-bg-color: #EAEDF1 !default;
 $text-color: #757575 !default;
 $border-color: #eeeeee !default;
@@ -15,6 +23,9 @@ $dark-el-bg-color-darken: darken($dark-el-bg-color, 5%) !default;
 $btn-default-color: #eceff1 !default;
 $btn-default-color-darken: darken($btn-default-color, 5%) !default;
 
+/*
+ * COLORS FOR USE IN THEMES
+ */
 $green: #33cc9c !default;
 $green-lighten: lighten($green, 5%) !default;
 $green-darken: darken($green, 5%) !default;
@@ -31,11 +42,13 @@ $pink: #f06292 !default;
 $pink-lighten: lighten($pink, 5%) !default;
 $pink-darken: darken($pink, 5%) !default;
 
+$purple: #ba68c8 !default;
+$purple-lighten: lighten($purple, 5%) !default;
+$purple-darken: darken($purple, 5%) !default;
+
 $primary-color: $green !default;
 $primary-color-lighten: lighten($primary-color, 5%) !default;
 $primary-color-darken: darken($primary-color, 5%) !default;
-
-$mono-font-stack: ('Consolas', 'Courier New', 'Courier', 'Lucida Sans Typewriter', 'Lucida Typewriter', 'monaco', monospace);
 
 $themes: (
 	'light': (
@@ -77,5 +90,11 @@ $themes: (
     'lighten': $pink-lighten,
     'darken': $pink-darken,
     'glow': 0 0 5px $pink
+  ),
+  'purple': (
+    'primary': $purple,
+    'lighten': $purple-lighten,
+    'darken': $purple-darken,
+    'glow': 0 0 5px $purple
   )
 ) !default;

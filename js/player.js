@@ -190,11 +190,12 @@ var Player = (function (window, document) {
         playListElement.innerHTML = "";
 
         for (i = 0; i < len; i += 1) {
+            
             musicName = document.createTextNode(Player.playList[i].name.replace(".mp3", ""));
 
-            li = document.createElement("li");
+            li     = document.createElement("li");
             button = document.createElement("button");
-            span = document.createElement("span");
+            span   = document.createElement("span");
 
             button.setAttribute("type", "button");
             button.setAttribute("class", "btn btn-circle btn-small icon icon-play");
