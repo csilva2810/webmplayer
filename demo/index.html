@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Music Player</title>
+
+    <link type="text/css" rel="stylesheet" href="css/structure.css">
+    <link type="text/css" rel="stylesheet" href="css/components.css">
+    <link type="text/css" rel="stylesheet" href="css/icons.css">
+
+    <link rel="shortcut icon" href="img/icon.ico">
+    
+</head>
+<body>
+
+    <div class="container">
+
+        <header class="header">
+
+            <div class="logo">
+                <span class="icon icon-headphones"></span>
+                WebMPlayer
+            </div>
+
+            <div class="user-preferences">
+                <button class="btn btn-header btn-user-preferences"> <span class="icon icon-cog"></span> </button>
+                <div class="wrap">
+                    <ul class="theme">
+                        <li class="theme-item" id="theme-light">Light</li>
+                        <li class="theme-item" id="theme-dark" >Dark </li>
+                    </ul>
+                    <ul class="color">
+                        <li class="color-item">
+                            <button id="btn-green" class="btn btn-color green"></button>
+                            <button id="btn-pink"  class="btn btn-color pink"></button>
+                            <button id="btn-red"   class="btn btn-color red"></button>
+                            <button id="btn-blue"  class="btn btn-color blue"></button>
+                        </li>
+                    </ul>
+                </div>  
+            </div>
+
+            <div class="upload-wrap">
+                <form name="form_upload">
+                    <input type="file" id="file-element" accept="audio/mp3" multiple style="display:none;" />
+                    <button type="button" id="btn-upload" class="btn btn-header" title="Adicionar Músicas"><span class="icon icon-music"></span></button>
+                </form>
+            </div>
+
+        </header>
+
+        <section class="play-list-wrap">
+            <ul class="play-list" id="play-list"></ul>
+        </section>
+
+        <section class="player-wrap">
+
+            <audio id="player" preload="auto">Seu browser não suporta reprodução de áudio.</audio>
+
+            <div class="controls-wrap">
+                <button type="button" class="btn player-btn icon icon-repeat" id="repeat"></button>
+                <button type="button" class="btn player-btn icon icon-chevron-left" id="prev"></button>
+                <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+                    <div class="flipper">
+                        <div class="front">
+                            <button type="button" class="btn player-btn icon icon-play large"  id="btn-play"></button>
+                        </div>
+                        <div class="back">
+                            <button type="button" class="btn player-btn icon icon-pause large" id="btn-pause"></button>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" class="btn player-btn icon icon-chevron-right" id="next"></button>
+                <button type="button" class="btn player-btn icon icon-random"        id="random"></button>
+            </div>  
+            
+            <div class="music-info">
+                <div class="loading-wrap">
+                    <span id="loading-music" class="loading">Carregando...</span>
+                </div>
+                <label id="music-name"> -- </label>
+            </div>
+
+            <div class="timeline-wrap">
+                <label id="time-count">00:00</label>
+                <input type="range" class="range opaque" min="0" max="100" id="timeline" value="0" step="any">
+                <label id="time">00:00</label>
+
+                <div class="volume-wrap">
+                    <button type="button" class="btn-volume btn player-btn small icon icon-volume-down"></button>
+                    <span class="volume-box">
+                        <input type="range" class="range" min="0" max="10" id="volume" value="10">
+                    </span>
+                </div>
+            </div>
+
+        </section>
+
+    </div>
+
+    <script type="text/javascript" src="js/player.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>

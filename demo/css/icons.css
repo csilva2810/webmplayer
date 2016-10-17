@@ -1,0 +1,51 @@
+@font-face {
+  font-family: 'Glyphicons Halflings';
+
+  src: url('../fonts/glyphicons-halflings-regular.eot');
+  src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}
+.icon {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-headphones:before {
+  content: "\e035";
+}
+.icon-cog:before {
+  content: "\e019";
+}
+.icon-music:before {
+  content: "\e002";
+}
+.icon-repeat:before {
+  content: "\e030";
+}
+.icon-chevron-left:before {
+  content: "\e079";
+}
+.icon-chevron-right:before {
+  content: "\e080";
+}
+.icon-play:before {
+  content: "\e072";
+}
+.icon-pause:before {
+  content: "\e073";
+}
+.icon-random:before {
+  content: "\e110";
+}
+.icon-volume-down:before {
+  content: "\e037";
+}
+.icon-volume-up:before {
+  content: "\e038";
+}
