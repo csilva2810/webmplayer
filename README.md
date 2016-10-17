@@ -9,4 +9,4 @@ Qual é o Objetivo?
 
 Apenas aprender as novas API's do HTML5 e me divertir fazendo algo que eu gosto :)
 
-<h4><a href="http://csilva2810.github.io/webmplayer/demo/index.html">Veja Funcionando</a></h4>
+<h4><a href="http://csilva2810.github.io/webmplayer/index.html">Veja Funcionando</a></h4>
