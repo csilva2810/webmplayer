@@ -1,0 +1,23 @@
+@media screen and (max-width: 700px) {
+
+  .container {
+    width: 100%;
+    top: 2px;
+  }
+
+  .play-list-wrap {
+    height: 75px;
+    max-height: 90px;
+  }
+
+  .btn.player-btn.large {
+    width: 60px;
+    height: 60px;
+  }
+
+  .btn.player-btn {
+    width: 40px;
+    height: 40px;
+  }
+
+}
