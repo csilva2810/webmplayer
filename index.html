@@ -1,73 +1,163 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Webmplayer by csilva2810</title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Music Player</title>
+  
+  <!-- google fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="css/main.css">
+  
+  <link rel="shortcut icon" href="img/icon.ico">
+</head>
+<body>
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1>Webmplayer</h1>
-        <p>Player de Músicas Local Baseado em HTML5, CSS3 e Javascript / Local Music Player Based in HTML5, CSS3 and JavaScript</p>
+  <div class="container">
 
-        <p class="view"><a href="https://github.com/csilva2810/WebMPlayer">View the Project on GitHub <small>csilva2810/WebMPlayer</small></a></p>
+    <div class="card">
 
-        <h1 class="view"><a href="demo/index.html">View Demo!</a></h1>
+      <header class="card-header clearfix">
+        
+        <div class="left one-third-width logo">
+          <i class="icon icon-headphones"></i>
+          WebMPlayer
+        </div>
 
+        <div class="left one-third-width text-center">
+          <small id="music-name" class="music-name"> -- </small>
+        </div>
+        
+        <div class="left one-third-width text-right">
+          
+          <div class="dropdown-wrapper inline-block">
+            <a href="#" class="btn btn-primary btn-header m-r-5 dropdown-toggle" data-dropdown="user-settings">
+              <i class="icon icon-cog"></i>
+            </a>
+            <div id="user-settings" class="dropdown-menu user-settings">
+              <ul class="color">
+                <li class="color-item p-5 text-center">
+                  <a href="#" id="btn-green"  class="btn btn-circle btn-color bg-green"  data-theme-color="green" ></a>
+                  <a href="#" id="btn-red"    class="btn btn-circle btn-color bg-red"    data-theme-color="red"   ></a>
+                  <a href="#" id="btn-pink"   class="btn btn-circle btn-color bg-pink"   data-theme-color="pink"  ></a>
+                  <a href="#" id="btn-blue"   class="btn btn-circle btn-color bg-blue"   data-theme-color="blue"  ></a>
+                  <a href="#" id="btn-purple" class="btn btn-circle btn-color bg-purple" data-theme-color="purple"></a>
+                  <a href="#" id="btn-cyan"   class="btn btn-circle btn-color bg-cyan"   data-theme-color="cyan"  ></a>
+                  <a href="#" id="btn-teal"   class="btn btn-circle btn-color bg-teal"   data-theme-color="teal"  ></a>
+                  <a href="#" id="btn-yellow" class="btn btn-circle btn-color bg-yellow" data-theme-color="yellow"></a>
+                  <a href="#" id="btn-orange" class="btn btn-circle btn-color bg-orange" data-theme-color="orange"></a>
+                </li>
+              </ul>
+              <hr class="divider">
+              <ul class="theme">
+                  <li class="theme-item">
+                      <a class="theme-item-btn" id="theme-light" href="#" data-theme-scheme="light">
+                        <small>Light</small>
+                      </a>
+                  </li>
+                  <li class="theme-item">
+                      <a class="theme-item-btn" id="theme-dark" href="#" data-theme-scheme="dark">
+                        <small>Dark</small>
+                      </a>
+                  </li>
+              </ul>
+            </div><!-- dropdown-menu -->
+          </div><!-- dropdown-wrapper -->
 
-        <ul>
-          <li><a href="https://github.com/csilva2810/WebMPlayer/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/csilva2810/WebMPlayer/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/csilva2810/WebMPlayer">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
-        <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+          <a href="#" id="btn-upload" class="btn btn-primary btn-header" title="Adicionar Músicas">
+            <i class="icon icon-music"></i>
+          </a>
+          <input type="file" id="file-element" accept="audio/mp3" multiple style="display:none;">
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+        </div><!-- right -->
+        
+      </header><!--card-header -->
+      
+      <hr class="divider">
+      
+      <section class="card-content">
+        <div class="play-list-wrap">
+          <ul class="play-list" id="play-list"></ul>
+        </div>
+      </section><!-- card-content -->
+      
+      <hr class="divider">
+      
+      <footer class="card-footer">
+        
+        <audio id="player" preload="auto">Seu browser não suporta reprodução de áudio.</audio>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
+        <div id="player-controls" class="text-center p-10">
+          <button type="button" class="btn btn-circle m-r-5" id="repeat">
+            <i class="icon icon-repeat"></i>
+          </button>
+          <button type="button" class="btn btn-circle m-r-5" id="prev">
+            <i class="icon icon-chevron-left"></i>
+          </button>
+          <div class="flip-container" id="flip-container" ontouchstart="this.classList.toggle('hover');">
+            <div class="flipper">
+              <div class="front">
+                <button type="button" class="btn btn-circle btn-large" id="btn-play">
+                  <i class="icon icon-play"></i>
+                </button>
+              </div>
+              <div class="back">
+                <button type="button" class="btn btn-circle btn-large" id="btn-pause">
+                  <i class="icon icon-pause"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <button type="button" class="btn btn-circle m-l-5" id="next">
+            <i class="icon icon-chevron-right"></i>
+          </button>
+          <button type="button" class="btn btn-circle m-l-5" id="random">
+            <i class="icon icon-random"></i>
+          </button>
+        </div>
+          
+        <div class="text-center p-10">
+          <div id="loading-music" class="loading">Carregando...</div>
+        </div>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+        <div class="text-center p-10 clearfix">
+          
+          <table class="table">
+            <tr>
+              <td class="text-right valign-middle">
+                <label class="is-timer" id="time-count">00:00</label>
+              </td>
+              <td class="text-center valign-middle">
+                <input type="range" class="range" min="0" max="100" id="timeline" value="0" step="any"> 
+              </td>
+              <td class="text-left valign-middle">
+                <label class="is-timer" id="time">00:00</label>
+              </td>
+            </tr>
+          </table>
 
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
+          <div class="dropdown-wrapper inline-block right">
+            <button type="button" class="btn-volume btn btn-circle btn-small dropdown-toggle" data-dropdown="volume-dropdown">
+              <i class="icon icon-volume-down"></i>
+            </button>
+            <ul class="dropdown-menu" id="volume-dropdown">
+              <li class="item p-5">
+                <input type="range" class="range" min="0" max="10" id="volume" value="10">
+              </li>
+            </ul>
+          </div>
 
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+        </div>
 
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
+      </footer><!-- card-footer -->
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+    </div><!-- card -->
 
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+  </div><!-- container -->
 
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-      </section>
-      <footer>
-        <p>This project is maintained by <a href="https://github.com/csilva2810">csilva2810</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-      </footer>
-    </div>
-    <script src="javascripts/scale.fix.js"></script>
-    
-  </body>
+  <script type="text/javascript" src="js/player.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
+  <script type="text/javascript" src="js/components/dropdown.js"></script>
+  
+</body>
 </html>
