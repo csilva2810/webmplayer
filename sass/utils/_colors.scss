@@ -3,7 +3,6 @@ Generating classes to apply colors to elements
 E.G: .bg-blue, .text-blue
 */
 @each $color, $c in $colors {
-	@debug $color + " - " + $c;
 	
 	.bg-#{$color} {
 		background-color: map-get($c, 'primary') !important;

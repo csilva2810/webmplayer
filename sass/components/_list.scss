@@ -5,26 +5,38 @@
   padding: 0;
 
   & > .list-item {
-    padding: 7px 10px;
-    position: relative;
-    transition: .2s;
-    font-size: 0.9em;
+    padding: 8px;
+    transition: background-color .2s;
+    font-size: 0.8em;
 
     &:hover { 
       background-color: rgba(0, 0, 0, 0.05); 
     }
 
     &.is-active {
-      background-color: rgba(0, 0, 0, 0.1);
+      background-color: rgba(0, 0, 0, 0.05);
     }
 
     & > .list-icon {
-      position: absolute; 
+
     }
 
-    & > .btn { 
-      margin-right: 16px;
-      margin-top: -2px; 
+    & > .btn {
+      padding: 0;
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      margin-right: 10px; 
+    }
+  }
+}
+
+.dark {
+  .play-list {
+    & > .lit-item {
+      &.is-active {
+        background-color: rgba(0, 0, 0, 0.1);
+      }
     }
   }
 }

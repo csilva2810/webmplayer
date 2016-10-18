@@ -1,7 +1,8 @@
 .sound-wave { 
-  position: absolute;
-  right: 30px;
-  top: 50%;
+  display: inline-block;
+  position: relative;
+  margin-left: 10px;
+  vertical-align: middle;
 }
 
 .sound-wave .bar {
@@ -10,7 +11,7 @@
   width: 6px;
 }
 
-.sound-wave.playing .bar {
+.sound-wave.is-active .bar {
   -webkit-animation: sound 0.5s linear infinite alternate;
      -moz-animation: sound 0.5s linear infinite alternate;
           animation: sound 0.5s linear infinite alternate;
