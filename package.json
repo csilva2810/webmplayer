@@ -4,7 +4,9 @@
   "description": "Web Player built with HTML5, Javascript and CSS",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "browserify js/main.js --debug | exorcist js/bundle.map.js > js/bundle.js",
+    "dev:watch": "watchify -vd js/main.js -o 'exorcist js/bundle.js.map > js/bundle.js'"
   },
   "repository": {
     "type": "git",
@@ -24,6 +26,8 @@
     "normalize.css": "^5.0.0"
   },
   "devDependencies": {
+    "browserify": "^13.1.0",
+    "exorcist": "^0.4.0",
     "gulp": "^3.9.1",
     "gulp-sass": "^2.3.2"
   }

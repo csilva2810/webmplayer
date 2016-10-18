@@ -7,13 +7,16 @@ body {
     font-family: $font-stack;
     font-size: 100%;
     color: $text-color;
-    background-color: $page-bg-color;
-    background-image: url('https://source.unsplash.com/category/nature/1920x1080');
-    background-size: cover;
-    background-repeat: no-repeat;
 }
 
-body.dark {
-    color: $dark-text-color;
-    background-color: $dark-page-bg-color;
+.body {
+    background-color: $page-bg-color;
+    background-image: url('https://source.unsplash.com/weekly?music');
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+    &.dark {
+        color: $dark-text-color;
+        background-color: $dark-page-bg-color;    
+    }
 }
