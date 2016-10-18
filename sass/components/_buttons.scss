@@ -1,0 +1,92 @@
+/*--- buttons ---*/
+.btn {
+
+  @include background-color('el-bg-color-darken');
+  
+  display: inline-block;
+  padding: 8px 10px;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  outline: none;
+  color: $text-color;
+  // background-color: $btn-default-color; 
+  text-align: center;
+  cursor: pointer;
+  
+  transition: .3s;
+  will-change: box-shadow, background-color;
+  
+  @extend .shadow-1;
+  
+  &:hover,
+  &:focus {
+    // background-color: $btn-default-color-darken;
+    @include background-color('el-bg-color-darken');
+    @extend .shadow-2;
+  }
+  
+  &:active {
+    @extend .shadow-3;
+  }
+  
+  &.btn-primary {
+    color: white;
+    @include background-color('primary');
+
+    &:hover,
+    &:focus {
+      @include background-color('lighten');
+    }
+  }
+
+  &.btn-circle {
+    padding: 0;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 50%;
+
+    &.btn-large {
+      font-size: 1.25em;
+      width: 75px;
+      height: 75px;
+      line-height: 75px;
+    }
+
+    &.btn-small {
+      font-size: 1em;
+      width: 35px;
+      height: 35px;
+      line-height: 35px;
+    }
+  }
+
+  &.btn-circle:hover {
+    @include background-color('primary');
+    color: white;
+  }
+
+  &.is-on {
+    // @include border-color('primary');
+    @include glow('glow');
+    @include color('primary');
+  }
+
+  &.is-on:hover { 
+    color: white; 
+  }
+
+  &.btn-color {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin: 3px;
+    box-shadow: none;
+
+    &:hover,
+    &:focus {
+      box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
+    }
+  }
+  
+}

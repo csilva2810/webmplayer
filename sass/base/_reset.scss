@@ -1,0 +1,40 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar { 
+  width: 9px;
+  height: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #ddd;
+}
+
+::-webkit-scrollbar-thumb:hover { 
+  background-color: #ccc;
+}
+
+::-webkit-scrollbar-thumb:active { 
+  background-color: #bbb; 
+}
+
+.dark {
+	::-webkit-scrollbar-thumb {
+	  background-color: #555;
+	}
+
+	::-webkit-scrollbar-thumb:hover { 
+	  background-color: #444;
+	}
+
+	::-webkit-scrollbar-thumb:active { 
+	  background-color: #333; 
+	}	
+}

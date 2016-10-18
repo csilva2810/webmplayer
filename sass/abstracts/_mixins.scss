@@ -1,0 +1,49 @@
+/// Themify mixin
+/// @access private
+/// @author Hugo Giraudel
+/// @param {String} $property - Property to themify
+/// @param {String} $key - Key color to use from theme
+/// @param {Map} $themes [$themes] - Map of themes to use
+@mixin themify($property, $key, $themes: $themes, $colors: $colors) {
+  // Iterate over the themes
+  @each $theme, $t in $themes {
+    // Create a selector (e.g. .theme-unicorn .media`)
+    .#{$theme} & {
+      // Output the declaration
+      #{$property}: map-get($t, $key);
+    }
+  }
+  
+  @each $color, $c in $colors {
+    // Create a selector (e.g. .theme-unicorn .media`)
+    .#{$color} & {
+      // Output the declaration
+      #{$property}: map-get($c, $key);
+    }
+  }
+}
+
+/// Shorthand to themify color through `themify` mixin
+/// @access public
+/// @see {mixin} themify
+@mixin color($arguments...) {
+  @include themify('color', $arguments...);
+}
+
+/// Shorthand to themify border-color through `themify` mixin
+/// @access public
+/// @see {mixin} themify
+@mixin border-color($arguments...) {
+  @include themify('border-color', $arguments...);
+}
+
+/// Shorthand to themify background-color through `themify` mixin
+/// @access public
+/// @see {mixin} themify
+@mixin background-color($arguments...) {
+  @include themify('background-color', $arguments...);
+}
+
+@mixin glow($arguments...) {
+  @include themify('box-shadow', $arguments...);
+}

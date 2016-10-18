@@ -969,8 +969,8 @@ E.G: .bg-blue, .text-blue
   box-sizing: border-box; }
 
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px; }
+  width: 9px;
+  height: 9px; }
 
 ::-webkit-scrollbar-track {
   background-color: transparent; }
@@ -985,13 +985,13 @@ E.G: .bg-blue, .text-blue
   background-color: #bbb; }
 
 .dark ::-webkit-scrollbar-thumb {
-  background-color: #444; }
+  background-color: #555; }
 
 .dark ::-webkit-scrollbar-thumb:hover {
-  background-color: #333; }
+  background-color: #444; }
 
 .dark ::-webkit-scrollbar-thumb:active {
-  background-color: #222; }
+  background-color: #333; }
 
 html,
 body {
@@ -1001,15 +1001,16 @@ body {
   height: 100%;
   font-family: "Rubik", "Helvetica", "Segoe UI", sans-serif;
   font-size: 100%;
-  color: #757575;
+  color: #757575; }
+
+body {
   background-color: #EAEDF1;
-  background-image: url("https://source.unsplash.com/category/nature/1920x1080");
+  background-image: url("https://source.unsplash.com/weekly?music");
   background-size: cover;
   background-repeat: no-repeat; }
-
-body.dark {
-  color: #eceff1;
-  background-color: #5A5D61; }
+  body.dark {
+    color: #eceff1;
+    background-color: #5A5D61; }
 
 .container {
   position: fixed;
@@ -1153,17 +1154,21 @@ body.dark {
     .orange .btn.btn-primary:hover, .orange .btn.btn-primary:focus {
       background-color: #ff835d; }
   .btn.btn-circle {
+    padding: 0;
     width: 50px;
     height: 50px;
+    line-height: 50px;
     border-radius: 50%; }
     .btn.btn-circle.btn-large {
       font-size: 1.25em;
       width: 75px;
-      height: 75px; }
+      height: 75px;
+      line-height: 75px; }
     .btn.btn-circle.btn-small {
       font-size: 1em;
       width: 35px;
-      height: 35px; }
+      height: 35px;
+      line-height: 35px; }
   .btn.btn-circle:hover {
     color: white; }
     .green .btn.btn-circle:hover {
@@ -1515,19 +1520,22 @@ body.dark {
   margin: 0 auto;
   padding: 0; }
   .play-list > .list-item {
-    padding: 7px 10px;
-    position: relative;
-    transition: .2s;
-    font-size: 0.9em; }
+    padding: 8px;
+    transition: background-color .2s;
+    font-size: 0.8em; }
     .play-list > .list-item:hover {
       background-color: rgba(0, 0, 0, 0.05); }
     .play-list > .list-item.is-active {
-      background-color: rgba(0, 0, 0, 0.1); }
-    .play-list > .list-item > .list-icon {
-      position: absolute; }
+      background-color: rgba(0, 0, 0, 0.05); }
     .play-list > .list-item > .btn {
-      margin-right: 16px;
-      margin-top: -2px; }
+      padding: 0;
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      margin-right: 10px; }
+
+.dark .play-list > .lit-item.is-active {
+  background-color: rgba(0, 0, 0, 0.1); }
 
 .loading {
   margin: 4px;
@@ -1540,16 +1548,17 @@ body.dark {
   animation: blink 1s ease-in-out 0s infinite alternate; }
 
 .sound-wave {
-  position: absolute;
-  right: 30px;
-  top: 50%; }
+  display: inline-block;
+  position: relative;
+  margin-left: 10px;
+  vertical-align: middle; }
 
 .sound-wave .bar {
   position: absolute;
   height: 2px;
   width: 6px; }
 
-.sound-wave.playing .bar {
+.sound-wave.is-active .bar {
   -webkit-animation: sound 0.5s linear infinite alternate;
   -moz-animation: sound 0.5s linear infinite alternate;
   animation: sound 0.5s linear infinite alternate; }

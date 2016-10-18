@@ -1,0 +1,48 @@
+@charset "utf-8";
+
+/* 
+IMPORT ORDER
+	1 - abstracts/
+	2 - vendors/
+	3 - utils/
+	4 - base/
+	5 - layout/
+	6 - components/
+	7 - pages/
+	8 - themes/
+*/
+
+@import 
+	'abstracts/variables.scss',
+	'abstracts/mixins.scss';
+
+@import 
+	'vendors/normalize.scss';
+
+@import 
+	'utils/animations.scss',
+	'utils/colors.scss',
+	'utils/helpers.scss',
+	'utils/shadows.scss';
+
+@import
+	'base/typograph.scss',
+	'base/reset.scss',
+	'base/base.scss';
+	
+@import
+	'layouts/player.scss',
+	'layouts/user-settings.scss';
+
+@import 
+	'components/buttons.scss',
+	'components/card.scss',
+	'components/dropdown.scss',
+	'components/flip-card.scss',
+	'components/icons.scss',
+	'components/input-range.scss',
+	'components/list.scss',
+	'components/loading.scss',
+	'components/sound-waves.scss',
+	'components/divider.scss',
+	'components/table.scss';

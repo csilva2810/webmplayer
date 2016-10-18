@@ -1,0 +1,34 @@
+{
+  "name": "webmplayer",
+  "version": "1.0.0",
+  "description": "Web Player built with HTML5, Javascript and CSS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "browserify src/js/main.js --debug | exorcist dist/js/bundle.map.js > dist/js/bundle.js",
+    "dev:watch": "watchify -vd src/js/main.js -o 'exorcist dist/js/bundle.js.map > dist/js/bundle.js'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/csilva2810/webmplayer.git"
+  },
+  "keywords": [
+    "webplayer",
+    "player"
+  ],
+  "author": "Carlos Silva",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/csilva2810/webmplayer/issues"
+  },
+  "homepage": "https://github.com/csilva2810/webmplayer#readme",
+  "dependencies": {
+    "normalize.css": "^5.0.0"
+  },
+  "devDependencies": {
+    "browserify": "^13.1.0",
+    "exorcist": "^0.4.0",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^2.3.2"
+  }
+}

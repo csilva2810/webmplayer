@@ -1,0 +1,162 @@
+/*
+ * TYPOGRAPH
+ */
+$mono-font-stack: ('Consolas', 'Courier New', 'Courier', 'Lucida Sans Typewriter', 'Lucida Typewriter', 'monaco', monospace);
+
+/**
+ * COLORS FOR PAGES AND ELEMENTS 
+ */
+$page-bg-color: #EAEDF1 !default;
+$text-color: #757575 !default;
+$border-color: #eeeeee !default;
+$el-bg-color: #fafafa !default;
+$el-bg-color-lighten: lighten($el-bg-color, 5%) !default;
+$el-bg-color-darken: darken($el-bg-color, 5%) !default;
+
+$dark-page-bg-color: #5A5D61 !default;
+$dark-text-color: #eceff1 !default;
+$dark-border-color: #444444 !default;
+$dark-el-bg-color: #3A3D41 !default;
+$dark-el-bg-color-lighten: lighten($dark-el-bg-color, 5%) !default;
+$dark-el-bg-color-darken: darken($dark-el-bg-color, 5%) !default;
+
+$btn-default-color: #eceff1 !default;
+$btn-default-color-darken: darken($btn-default-color, 5%) !default;
+
+/*
+ * COLORS FOR USE IN THEMES
+ */
+$green: #66bb6a !default;
+$green-lighten: lighten($green, 5%) !default;
+$green-darken: darken($green, 5%) !default;
+$green-pastel: lighten($green, 30%) !default;
+
+$blue: #4fc3f7 !default;
+$blue-lighten: lighten($blue, 5%) !default;
+$blue-darken: darken($blue, 5%) !default;
+$blue-pastel: lighten($blue, 30%) !default;
+
+$red: #ff5555 !default;
+$red-lighten: lighten($red, 5%) !default;
+$red-darken: darken($red, 5%) !default;
+$red-pastel: lighten($red, 30%) !default;
+
+$pink: #f06292 !default;
+$pink-lighten: lighten($pink, 5%) !default;
+$pink-darken: darken($pink, 5%) !default;
+$pink-pastel: lighten($pink, 30%) !default;
+
+$purple: #ba68c8 !default;
+$purple-lighten: lighten($purple, 5%) !default;
+$purple-darken: darken($purple, 5%) !default;
+$purple-pastel: lighten($purple, 30%) !default;
+
+$cyan: #4dd0e1 !default;
+$cyan-lighten: lighten($cyan, 5%) !default;
+$cyan-darken: darken($cyan, 5%) !default;
+$cyan-pastel: lighten($cyan, 30%) !default;
+
+$teal: #00bfa5 !default;
+$teal-lighten: lighten($teal, 5%) !default;
+$teal-darken: darken($teal, 5%) !default;
+$teal-pastel: lighten($teal, 55%) !default;
+
+$yellow: #fbc02d !default;
+$yellow-lighten: lighten($yellow, 5%) !default;
+$yellow-darken: darken($yellow, 5%) !default;
+$yellow-pastel: lighten($yellow, 30%) !default;
+
+$orange: #ff7043 !default;
+$orange-lighten: lighten($orange, 5%) !default;
+$orange-darken: darken($orange, 5%) !default;
+$orange-pastel: lighten($orange, 30%) !default;
+
+$primary-color: $teal !default;
+$primary-color-lighten: lighten($primary-color, 5%) !default;
+$primary-color-darken: darken($primary-color, 5%) !default;
+$primary-color-pastel: lighten($primary-color, 30%) !default;
+
+$themes: (
+	'light': (
+		'bg-color': $page-bg-color,
+		'text-color': $text-color,
+		'border-color': $border-color,
+		'el-bg-color': $el-bg-color,
+		'el-bg-color-lighten': $el-bg-color-lighten,
+		'el-bg-color-darken': $el-bg-color-darken
+	),
+	'dark': (
+		'bg-color': $dark-page-bg-color,
+		'text-color': $dark-text-color,
+		'border-color': $dark-border-color,
+		'el-bg-color': $dark-el-bg-color,
+		'el-bg-color-lighten': $dark-el-bg-color-lighten,
+		'el-bg-color-darken': $dark-el-bg-color-darken
+	)
+) !default;
+
+$colors: (
+  'green': (
+    'primary': $green,
+    'lighten': $green-lighten,
+    'darken': $green-darken,
+    'glow': 0 0 5px $green,
+    'pastel': $green-pastel
+  ),
+  'blue': (
+    'primary': $blue,
+    'lighten': $blue-lighten,
+    'darken': $blue-darken,
+    'glow': 0 0 5px $blue,
+    'pastel': $blue-pastel
+  ),
+  'red': (
+    'primary': $red,
+    'lighten': $red-lighten,
+    'darken': $red-darken,
+    'glow': 0 0 5px $red,
+    'pastel': $red-pastel
+  ),
+  'pink': (
+    'primary': $pink,
+    'lighten': $pink-lighten,
+    'darken': $pink-darken,
+    'glow': 0 0 5px $pink,
+    'pastel': $pink-pastel
+  ),
+  'purple': (
+    'primary': $purple,
+    'lighten': $purple-lighten,
+    'darken': $purple-darken,
+    'glow': 0 0 5px $purple,
+    'pastel': $purple-pastel
+  ),
+  'cyan': (
+    'primary': $cyan,
+    'lighten': $cyan-lighten,
+    'darken': $cyan-darken,
+    'glow': 0 0 5px $cyan,
+    'pastel': $cyan-pastel
+  ),
+  'teal': (
+    'primary': $teal,
+    'lighten': $teal-lighten,
+    'darken': $teal-darken,
+    'glow': 0 0 5px $teal,
+    'pastel': $teal-pastel
+  ),
+  'yellow': (
+    'primary': $yellow,
+    'lighten': $yellow-lighten,
+    'darken': $yellow-darken,
+    'glow': 0 0 5px $yellow,
+    'pastel': $yellow-pastel
+  ),
+  'orange': (
+    'primary': $orange,
+    'lighten': $orange-lighten,
+    'darken': $orange-darken,
+    'glow': 0 0 5px $orange,
+    'pastel': $orange-pastel
+  )
+) !default;

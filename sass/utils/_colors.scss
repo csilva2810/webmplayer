@@ -1,0 +1,28 @@
+/*
+Generating classes to apply colors to elements
+E.G: .bg-blue, .text-blue
+*/
+@each $color, $c in $colors {
+	
+	.bg-#{$color} {
+		background-color: map-get($c, 'primary') !important;
+	}
+	.text-#{$color} {
+		color: map-get($c, 'primary') !important;
+	}
+	
+	.bg-#{$color}-lighten {
+		background-color: map-get($c, 'lighten') !important;
+	}
+	.text-#{$color}-lighten {
+		color: map-get($c, 'lighten') !important;
+	}
+	
+	.bg-#{$color}-darken {
+		background-color: map-get($c, 'darken') !important;
+	}
+	.text-#{$color}-darken {
+		color: map-get($c, 'darken') !important;
+	}
+	
+}

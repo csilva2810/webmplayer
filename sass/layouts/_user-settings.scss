@@ -1,0 +1,42 @@
+.dropdown-menu.user-settings {
+  width: 120px;
+}
+
+.theme,
+.color {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.theme {
+   
+  .theme-item-btn {
+    
+    display: block;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    transition: .3s;
+    
+    &:hover {
+      background: rgba(0, 0, 0, 0.05);
+    }
+    
+  }
+  
+}
+
+.color {
+  
+  & > .color-item {
+    margin: 0;
+  }
+  
+}

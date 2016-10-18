@@ -1,0 +1,22 @@
+html, 
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: $font-stack;
+    font-size: 100%;
+    color: $text-color;
+}
+
+body {
+    background-color: $page-bg-color;
+    background-image: url('https://source.unsplash.com/weekly?music');
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+    &.dark {
+        color: $dark-text-color;
+        background-color: $dark-page-bg-color;    
+    }
+}

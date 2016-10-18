@@ -1,0 +1,36 @@
+.card {
+
+  @include background-color('el-bg-color');
+  
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 3px;
+  
+  transition: .2s;
+  will-change: box-shadow;
+  
+  @extend .shadow-2;
+  
+  &:hover {
+    @extend .shadow-4;
+  }
+
+  & > .card-header {
+    display: block;
+    padding: 5px 10px;
+    border-radius: 3px 3px 0 0;
+
+    .btn-header {
+      padding: 0;
+      width: 32px;
+      height: 32px;
+      line-height: 32px;
+    }
+  }
+  
+  & > .card-content {}
+  
+  & > .card-footer {}
+  
+}

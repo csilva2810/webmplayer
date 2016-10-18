@@ -1,6 +1,9 @@
+require('./components/dropdown.js');
+
+var Player = require('./components/player.js');
+
 (function () {
     
-    "use strict";
     var btnUpload   = document.querySelector("#btn-upload"),
         fileElement = document.querySelector("#file-element"),
         themeLight  = document.querySelector("#theme-light"),
@@ -62,8 +65,8 @@
             Player.setPlayList(this.files[i]);
         }
 
-        Player.playMusic.apply(Player, [0]);
         Player.createPlayList();
+        Player.playMusic(0);
 
     }, false);
 
