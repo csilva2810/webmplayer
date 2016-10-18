@@ -1515,19 +1515,22 @@ body.dark {
   margin: 0 auto;
   padding: 0; }
   .play-list > .list-item {
-    padding: 7px 10px;
-    position: relative;
-    transition: .2s;
-    font-size: 0.9em; }
+    padding: 8px;
+    transition: background-color .2s;
+    font-size: 0.8em; }
     .play-list > .list-item:hover {
       background-color: rgba(0, 0, 0, 0.05); }
     .play-list > .list-item.is-active {
-      background-color: rgba(0, 0, 0, 0.1); }
-    .play-list > .list-item > .list-icon {
-      position: absolute; }
+      background-color: rgba(0, 0, 0, 0.05); }
     .play-list > .list-item > .btn {
-      margin-right: 16px;
-      margin-top: -2px; }
+      padding: 0;
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      margin-right: 10px; }
+
+.dark .play-list > .lit-item.is-active {
+  background-color: rgba(0, 0, 0, 0.1); }
 
 .loading {
   margin: 4px;
@@ -1540,16 +1543,17 @@ body.dark {
   animation: blink 1s ease-in-out 0s infinite alternate; }
 
 .sound-wave {
-  position: absolute;
-  right: 30px;
-  top: 50%; }
+  display: inline-block;
+  position: relative;
+  margin-left: 10px;
+  vertical-align: middle; }
 
 .sound-wave .bar {
   position: absolute;
   height: 2px;
   width: 6px; }
 
-.sound-wave.playing .bar {
+.sound-wave.is-active .bar {
   -webkit-animation: sound 0.5s linear infinite alternate;
   -moz-animation: sound 0.5s linear infinite alternate;
   animation: sound 0.5s linear infinite alternate; }

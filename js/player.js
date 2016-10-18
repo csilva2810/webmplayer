@@ -73,8 +73,8 @@ var Player = (function (window, document) {
 
         audio.onloadeddata = function() {
             Player.hideLoading();
-            Player.play(track, parseInt(Player.currentTrack) );
-            Player.currentTrack = parseInt(track) || 0;
+            Player.play(track);
+            Player.currentTrack = parseInt(track);
             Player.setMusicName(Player.playList[track].name);
             Player.setTimeLineMax(this.duration);
             Player.setMusicTime(this.duration);
@@ -82,9 +82,9 @@ var Player = (function (window, document) {
         
     };
 
-    Player.play = function (track, lastTrack) {
-        
-        track = track || Player.currentTrack;
+    Player.play = function (track) {
+
+        var lastTrack = Player.currentTrack;
 
         if (audio.src == "") return false;
 
@@ -93,8 +93,14 @@ var Player = (function (window, document) {
 
         flip.classList.add('is-flipped');
 
-        if (lastTrack > -1) document.querySelector("#list-icon-"+lastTrack).classList.remove("playing");
-        document.querySelector("#list-icon-"+track).classList.add("playing");
+        if (lastTrack > -1) {
+            document.querySelector("#list-item-"+lastTrack).classList.remove("is-active");
+            document.querySelector("#list-icon-"+lastTrack).classList.remove("is-active");
+        }
+
+        document.querySelector("#list-item-"+track).classList.add("is-active");
+        document.querySelector("#list-icon-"+track).classList.add("is-active");
+
     };
 
     Player.pause = function () {
@@ -105,31 +111,36 @@ var Player = (function (window, document) {
         audio.pause(); //metodo nativo do objeto HTMLAudioElement
         
         flip.classList.remove('is-flipped');
-        document.querySelector("#list-icon-"+Player.currentTrack).classList.remove("playing");
+        document.querySelector("#list-icon-"+Player.currentTrack).classList.remove("is-active");
     };
 
     Player.playPrev = function () {
-        if (audio.src == "") return false;
-        var prev = Player.currentTrack - 1;
         
+        if (audio.src == "") return false;
+        
+        var prev = Player.currentTrack - 1;
         (prev > -1) ? Player.playMusic(prev) : Player.playMusic(0);
+
     };
 
     Player.playNext = function () {
+
         if (audio.src == "") return false;
 
         var next = Player.currentTrack + 1;
         var lastMusic = Player.playList.length - 1;
+        var random = Math.round( Math.random() * (lastMusic) );
 
         if (Player.isRandomized === false) {
             (next <= lastMusic) ? Player.playMusic(next) : Player.playMusic(0) ;
         } else {
-            var random = Math.round( Math.random() * (lastMusic) );
             Player.playMusic(random);
         }
+
     };
 
     Player.repeat = function () {
+
         if (Player.isRepeating === false) {
             btnRepeat.classList.add('is-on');
             audio.setAttribute("loop", "");
@@ -139,9 +150,11 @@ var Player = (function (window, document) {
             audio.removeAttribute("loop");
             Player.isRepeating = false;
         }
+
     };
 
     Player.randomize = function () {
+
         if (Player.isRandomized === false) {
             btnRandom.classList.add('is-on');
             Player.isRandomized = true;
@@ -149,6 +162,7 @@ var Player = (function (window, document) {
             btnRandom.classList.remove('is-on');
             Player.isRandomized = false;
         }
+        
     };
 
     Player.changeVolume = function () {
@@ -198,16 +212,20 @@ var Player = (function (window, document) {
             span   = document.createElement("span");
 
             button.setAttribute("type", "button");
-            button.setAttribute("class", "btn btn-circle btn-small icon icon-play");
+            button.setAttribute("class", "btn btn-circle btn-small");
+            button.innerHTML = '<i class="icon icon-play"></i>';
             
             (function (id) {
-                button.addEventListener('click', function () { Player.playMusic(id) } , false);
+                button.addEventListener('click', function () { 
+                    Player.playMusic(id, Player.currentTrack);
+                } , false);
             })(i);
 
             span.setAttribute("id", "list-icon-"+i);
             span.setAttribute("class", "sound-wave");
             span.innerHTML = "<span class='bar'></span><span class='bar'></span><span class='bar'></span>";
 
+            li.setAttribute("id", "list-item-"+i);
             li.setAttribute("class", "list-item");
             li.appendChild(button);
             li.appendChild(musicName);
