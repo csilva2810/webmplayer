@@ -1,5 +1,3 @@
-"use strict";
-
 require('./components/dropdown.js');
 
 var Player = require('./components/player.js');
@@ -67,8 +65,8 @@ var Player = require('./components/player.js');
             Player.setPlayList(this.files[i]);
         }
 
-        Player.playMusic.apply(Player, [0]);
         Player.createPlayList();
+        Player.playMusic(0);
 
     }, false);
 
