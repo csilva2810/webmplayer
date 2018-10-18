@@ -1,6 +1,8 @@
 > Web Music Player
 
-It's a MP3 music player made with only Javascript , CSS and HTML5 Audio API.\
+![elementary](https://raw.githubusercontent.com/csilva2810/webmplayer/master/img/demo.png)
+
+It's a MP3 music player made with only Javascript, CSS and HTML5 Audio API.\
 It uses Javascript's File API to read the music files and reproduce them.\
 A have used [Sass](https://sass-lang.com/) pre-compiler to create modular theming styles, so you can choose a dark or light theme and you can also change the player color for your favorite.\
 The player also uses localStorage API to storage your last theme personalizations. So when you comeback to listen to your musics, the player will be like as you left it.\
